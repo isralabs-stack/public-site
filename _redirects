@@ -1,0 +1,3 @@
+# Netlify redirects — old domains → isralabs.org (active only if those domains are attached to this site)
+https://isralabs.org.il/*   https://isralabs.org/:splat   301!
+https://www.isralabs.org/*  https://isralabs.org/:splat   301!

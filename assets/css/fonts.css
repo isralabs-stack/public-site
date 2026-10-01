@@ -1,0 +1,15 @@
+/* IsraLabs webfonts — Untitled Sans / Untitled Serif (Latin), Ploni (Hebrew) */
+@font-face{font-family:'Untitled Serif';src:url('../fonts/untitled-serif-regular.woff') format('woff');font-weight:300 500;font-display:swap;}
+@font-face{font-family:'Untitled Serif';src:url('../fonts/untitled-serif-italic.woff') format('woff');font-weight:300 400;font-style:italic;font-display:swap;}
+@font-face{font-family:'Untitled Serif';src:url('../fonts/untitled-serif-medium-italic.woff') format('woff');font-weight:500;font-style:italic;font-display:swap;}
+@font-face{font-family:'Untitled Sans';src:url('../fonts/untitled-sans-regular.woff') format('woff');font-weight:400;font-display:swap;}
+@font-face{font-family:'Untitled Sans';src:url('../fonts/untitled-sans-medium.woff') format('woff');font-weight:500 600;font-display:swap;}
+@font-face{font-family:'Untitled Sans';src:url('../fonts/untitled-sans-medium-italic.woff') format('woff');font-weight:500;font-style:italic;font-display:swap;}
+@font-face{font-family:'Ploni';src:url('../fonts/ploni-ultralight.woff') format('woff');font-weight:200;font-style:normal;font-display:swap;}
+@font-face{font-family:'Ploni';src:url('../fonts/ploni-light.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
+@font-face{font-family:'Ploni';src:url('../fonts/ploni-regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Ploni';src:url('../fonts/ploni-medium.woff') format('woff');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Ploni';src:url('../fonts/ploni-demibold.woff') format('woff');font-weight:600;font-style:normal;font-display:swap;}
+@font-face{font-family:'Ploni';src:url('../fonts/ploni-bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Ploni';src:url('../fonts/ploni-ultrabold.woff') format('woff');font-weight:800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Ploni';src:url('../fonts/ploni-black.woff') format('woff');font-weight:900;font-style:normal;font-display:swap;}
