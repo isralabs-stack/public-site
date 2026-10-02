@@ -1,23 +1,21 @@
 # IsraLabs — website
 
-Static site. No build step: upload the folder contents as-is to the root of your host.
+Static site. No build step: deploy the contents of `public/`.
 
 ## Structure
-- index.html — the whole site (EN/HE; `?lang=he` loads Hebrew)
-- 404.html — not-found page
-- favicon.svg
-- assets/css/fonts.css — @font-face declarations (WOFF)
-- assets/fonts/ — Untitled Sans, Untitled Serif, Ploni (WOFF)
-- assets/img/ — photos, logos, icons; assets/img/team/ — board portraits
-- assets/js/isralabs-runtime.js — page runtime (required)
-- assets/video/space-loop.mp4 — thumbnail loop for the first News card (only video on the site)
-- robots.txt, sitemap.xml — SEO, point to https://isralabs.org
-- _headers, _redirects — Netlify · vercel.json — Vercel · .htaccess — Apache/cPanel (each host ignores the others)
+- public/index.html — the whole site (EN/HE; `?lang=he` loads Hebrew)
+- public/404.html — not-found page
+- public/favicon.svg
+- public/assets/ — fonts, images, page runtime, and video
+- public/robots.txt, public/sitemap.xml — SEO, point to https://isralabs.org
+- public/_headers — Cloudflare Pages static-response headers
+- vercel.json — Vercel headers and redirect; remains at the repository root
+- _redirects — legacy Netlify domain redirects; excluded from `public/` because Cloudflare Pages does not support domain-level sources
 
 ## Deploy
-Netlify: drag the folder onto app.netlify.com/drop, or connect a repo with publish dir = this folder and no build command.
-Vercel: `vercel --prod` from inside the folder (framework: Other).
-Then add isralabs.org in the host dashboard and set DNS as instructed. Attach old domains (isralabs.org.il, www) to the same site so the redirects apply.
+Vercel: keep the project root at the repository root and framework preset `Other`; its default output directory selects `public/` when present. Check any dashboard override before deploying.
+Cloudflare Pages: connect this repository to a **Pages** project; set the build output directory to `public` (Cloudflare recommends `exit 0` as the build command when using Pages Functions).
+Only one provider should own the production domain at a time. Configure old-domain redirects in the active host's dashboard; see [deployment handoff](docs/deployment-handoff.md).
 
 ## Contact form (Netlify Forms)
 The form is wired to Netlify Forms — no third-party service, no keys.
@@ -25,7 +23,7 @@ The form is wired to Netlify Forms — no third-party service, no keys.
 - Netlify detects the form on deploy. Submissions appear in **Site → Forms → contact**.
 - Email notifications are OFF by default: Site configuration → Notifications → **Add notification → Form submission** → enter the address to notify.
 - Free tier: 100 submissions/month.
-- It only works on Netlify. On another host the send will fail (the form shows an error) — swap in Formspree/Web3Forms instead.
+- It only works on Netlify. On Vercel or Cloudflare, the send will fail until the form handler is migrated; see [deployment handoff](docs/deployment-handoff.md).
 
 ## Notes
 - Fonts are WOFF (supported everywhere). For WOFF2 (~25% smaller again), run the OTF originals through a WOFF2 converter and update fonts.css.

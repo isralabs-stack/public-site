@@ -1,0 +1,15 @@
+# Local tooling and generated files
+.opencode/
+.vercel/
+.wrangler/
+node_modules/
+
+# Local notes (not shared in Git yet)
+docs/
+
+# Secrets and machine files
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
