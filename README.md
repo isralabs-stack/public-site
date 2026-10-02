@@ -8,14 +8,15 @@ Static site. No build step: deploy the contents of `public/`.
 - public/favicon.svg
 - public/assets/ — fonts, images, page runtime, and video
 - public/robots.txt, public/sitemap.xml — SEO, point to https://isralabs.org
-- public/_headers — Cloudflare Pages static-response headers
+- public/_headers — Cloudflare Workers Static Assets response headers
 - vercel.json — Vercel headers and redirect; remains at the repository root
-- _redirects — legacy Netlify domain redirects; excluded from `public/` because Cloudflare Pages does not support domain-level sources
+- _redirects — legacy Netlify domain redirects; excluded from `public/`
+- wrangler.jsonc — Cloudflare Worker name, compatibility date, and `./public` asset directory
 
 ## Deploy
-Vercel: keep the project root at the repository root and framework preset `Other`; its default output directory selects `public/` when present. Check any dashboard override before deploying.
-Cloudflare Pages: connect this repository to a **Pages** project; set the build output directory to `public` (Cloudflare recommends `exit 0` as the build command when using Pages Functions).
-Only one provider should own the production domain at a time. Configure old-domain redirects in the active host's dashboard; see [deployment handoff](docs/deployment-handoff.md).
+Cloudflare Workers: the Git-connected project runs `npx wrangler deploy` with no build command. `wrangler.jsonc` publishes only `public/`; the first Worker deployment using this layout succeeded on 2026-10-02. The `workers.dev` URL is for migration testing, not proof that the contact form works.
+Vercel: keep the project root at the repository root and framework preset `Other`; its default output directory selects `public/` when present. Verify its next Git deployment after this layout change.
+Only one provider should own the production domain at a time. Configure old-domain redirects in the active host's dashboard; see the local [deployment handoff](docs/deployment-handoff.md) (currently ignored by Git).
 
 ## Contact form (Netlify Forms)
 The form is wired to Netlify Forms — no third-party service, no keys.
