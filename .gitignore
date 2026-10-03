@@ -10,6 +10,8 @@ docs/
 # Secrets and machine files
 .env
 .env.*
+.dev.vars
+.dev.vars.*
 !.env.example
 .DS_Store
 *.log

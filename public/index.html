@@ -823,27 +823,27 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
       <h2 style="margin: 0; font-family: 'Untitled Sans',sans-serif; font-weight: 400; font-size: 34px; letter-spacing: -1px">{{ contactHeading }}</h2>
       <p style="margin:0;font-size:17px;line-height:1.5;color:rgba(46,42,36,0.6);max-width:38ch;text-wrap:pretty;white-space:pre-line;">{{ contactLead }}</p>
     </div>
-    <form class="m-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" noValidate="{{ true }}" onInput="{{ clearErrs }}" onSubmit="{{ contactSubmit }}" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px;">
-      <input type="hidden" name="form-name" value="contact">
-      <p style="display:none;"><label>Don't fill this out<input name="bot-field"></label></p>
+    <form class="m-form" name="contact" method="POST" action="/api/contact" noValidate="{{ true }}" onInput="{{ clearErrs }}" onSubmit="{{ contactSubmit }}" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px;">
+      <p style="display:none;"><label>Don't fill this out<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <label style="display:flex;flex-direction:column;gap:8px;">
         <span style="font-size: 17px; letter-spacing: 0em; color: rgba(46,42,36,0.6)">{{ nameLabel }}</span>
-        <input type="text" name="name" required="{{ true }}" style="border:none;border-bottom:1px solid {{ bdName }};background:transparent;padding:10px 0;font-family:'Untitled Sans',sans-serif;font-size:17px;color:#2E2A24;outline:none;transition:border-color 0.25s ease;" style-focus="border-bottom-color:#2E2A24;">
-        <span style="font-size:13px;line-height:1.3;color:#B4432B;height:{{ errH }};opacity:{{ opName }};transition:opacity 0.2s ease;">{{ errName }}</span>
+        <input type="text" name="name" maxlength="200" aria-invalid="{{ invalidName }}" aria-describedby="contact-name-error" required="{{ true }}" style="border:none;border-bottom:1px solid {{ bdName }};background:transparent;padding:10px 0;font-family:'Untitled Sans',sans-serif;font-size:17px;color:#2E2A24;outline:none;transition:border-color 0.25s ease;" style-focus="border-bottom-color:#2E2A24;">
+        <span id="contact-name-error" style="font-size:13px;line-height:1.3;color:#B4432B;height:{{ errH }};opacity:{{ opName }};transition:opacity 0.2s ease;">{{ errName }}</span>
       </label>
       <label style="display:flex;flex-direction:column;gap:8px;">
         <span style="font-size:17px;color:rgba(46,42,36,0.6);">{{ emailLabelForm }}</span>
-        <input type="email" name="email" required="{{ true }}" style="border:none;border-bottom:1px solid {{ bdEmail }};background:transparent;padding:10px 0;font-family:'Untitled Sans',sans-serif;font-size:17px;color:#2E2A24;outline:none;transition:border-color 0.25s ease;" style-focus="border-bottom-color:#2E2A24;">
-        <span style="font-size:13px;line-height:1.3;color:#B4432B;height:{{ errH }};opacity:{{ opEmail }};transition:opacity 0.2s ease;">{{ errEmail }}</span>
+        <input type="email" name="email" maxlength="254" aria-invalid="{{ invalidEmail }}" aria-describedby="contact-email-error" required="{{ true }}" style="border:none;border-bottom:1px solid {{ bdEmail }};background:transparent;padding:10px 0;font-family:'Untitled Sans',sans-serif;font-size:17px;color:#2E2A24;outline:none;transition:border-color 0.25s ease;" style-focus="border-bottom-color:#2E2A24;">
+        <span id="contact-email-error" style="font-size:13px;line-height:1.3;color:#B4432B;height:{{ errH }};opacity:{{ opEmail }};transition:opacity 0.2s ease;">{{ errEmail }}</span>
       </label>
       <label style="display:flex;flex-direction:column;gap:8px;grid-column:1 / -1;">
         <span style="font-size:17px;color:rgba(46,42,36,0.6);">{{ subjectLabel }}</span>
-        <textarea name="subject" required="{{ true }}" rows="3" style="border:none;border-bottom:1px solid {{ bdSubject }};background:transparent;padding:10px 0;font-family:'Untitled Sans',sans-serif;font-size:17px;color:#2E2A24;outline:none;resize:vertical;transition:border-color 0.25s ease;" style-focus="border-bottom-color:#2E2A24;"></textarea>
-        <span style="font-size:13px;line-height:1.3;color:#B4432B;height:{{ errH }};opacity:{{ opSubject }};transition:opacity 0.2s ease;">{{ errSubject }}</span>
+        <textarea name="subject" maxlength="5000" aria-invalid="{{ invalidSubject }}" aria-describedby="contact-subject-error" required="{{ true }}" rows="3" style="border:none;border-bottom:1px solid {{ bdSubject }};background:transparent;padding:10px 0;font-family:'Untitled Sans',sans-serif;font-size:17px;color:#2E2A24;outline:none;resize:vertical;transition:border-color 0.25s ease;" style-focus="border-bottom-color:#2E2A24;"></textarea>
+        <span id="contact-subject-error" style="font-size:13px;line-height:1.3;color:#B4432B;height:{{ errH }};opacity:{{ opSubject }};transition:opacity 0.2s ease;">{{ errSubject }}</span>
       </label>
+      <div id="contact-turnstile" style="grid-column:1 / -1;"></div>
       <div style="grid-column:1 / -1;display:flex;align-items:center;gap:20px;margin-top:8px;">
-        <button type="submit" style="border:none;background:#14120F;color:#F6F3EE;border-radius:999px;padding:15px 34px;font-family:'Untitled Sans',sans-serif;font-size:14px;letter-spacing:0.02em;cursor:pointer;transition:opacity 0.25s ease;" style-hover="opacity:0.82;">{{ sendLabelLive }}</button>
-        <span style="font-size:15px;color:rgba(46,42,36,0.55);opacity:{{ sentOpacity }};transition:opacity 0.4s ease;">{{ sentLabel }}</span>
+        <button type="submit" disabled="{{ contactDisabled }}" style="border:none;background:#14120F;color:#F6F3EE;border-radius:999px;padding:15px 34px;font-family:'Untitled Sans',sans-serif;font-size:14px;letter-spacing:0.02em;cursor:pointer;transition:opacity 0.25s ease;" style-hover="opacity:0.82;">{{ sendLabelLive }}</button>
+        <span role="status" aria-live="polite" aria-atomic="true" style="font-size:15px;color:rgba(46,42,36,0.55);opacity:{{ sentOpacity }};transition:opacity 0.4s ease;">{{ sentLabel }}</span>
       </div>
     </form>
   </div>
@@ -900,6 +900,84 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { open: null, aspects: {}, lang: (typeof location !== 'undefined' && (new URLSearchParams(location.search).get('lang') === 'he' || /(^|[?&])lang=he\b/.test(location.search))) ? 'he' : 'en', dragOffsets: {}, active: 0, ascii: {} };
+  async initContact() {
+    if (this._contactInit) return this._contactInit;
+    this._contactInit = (async () => {
+      try {
+        const response = await fetch('/api/contact-config', { cache: 'no-store', signal: AbortSignal.timeout(10000) });
+        if (!response.ok) throw new Error('Contact configuration unavailable');
+        const config = await response.json();
+        if (typeof config.fallbackEmail !== 'string' || typeof config.siteKey !== 'string') throw new Error('Invalid configuration');
+        this.setState({ contactConfig: config });
+        if (!window.turnstile) await new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          const timer = setTimeout(() => { script.remove(); reject(new Error('Security check timed out')); }, 15000);
+          script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+          script.async = true;
+          script.onload = () => { clearTimeout(timer); resolve(); };
+          script.onerror = () => { clearTimeout(timer); script.remove(); reject(new Error('Security check unavailable')); };
+          document.head.appendChild(script);
+        });
+        if (this._contactWidget === undefined) this._contactWidget = window.turnstile.render(document.getElementById('contact-turnstile'), {
+          sitekey: config.siteKey, action: 'contact', language: this.state.lang,
+          callback: token => { this._contactToken = token; this.setState({ challengeErr: false }); },
+          'expired-callback': () => { this._contactToken = ''; this.setState({ challengeErr: true }); },
+          'error-callback': () => { this._contactToken = ''; this.setState({ sendErr: true }); },
+        });
+      } catch { this.setState({ sendErr: true }); }
+    })();
+    try { await this._contactInit; } finally { this._contactInit = null; }
+  }
+  resetContactChallenge() {
+    this._contactToken = '';
+    if (this._contactWidget !== undefined && window.turnstile) {
+      try { window.turnstile.reset(this._contactWidget); }
+      catch { this.setState({ sendErr: true }); }
+    }
+  }
+  async submitContact(e) {
+    e.preventDefault();
+    if (this.state.sending) return;
+    const form = e.target, he = this.state.lang === 'he';
+    const data = new FormData(form);
+    const value = key => String(data.get(key) || '').trim();
+    const errs = {};
+    if (!value('name')) errs.name = he ? 'נא למלא שם' : 'Please add your name';
+    if (!value('email')) errs.email = he ? 'נא למלא אימייל' : 'Please add your email';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value('email'))) errs.email = he ? 'כתובת אימייל לא תקינה' : 'Check the email address';
+    if (!value('subject')) errs.subject = he ? 'נא לכתוב הודעה' : 'Please write a message';
+    if (Object.keys(errs).length) {
+      this.setState({ errs, sendErr: false, sent: false });
+      form.querySelector('[name="' + Object.keys(errs)[0] + '"]')?.focus();
+      return;
+    }
+    this.setState({ sending: true, sent: false, sendErr: false, errs: null });
+    try {
+      if (!this.state.contactConfig || this._contactWidget === undefined) await this.initContact();
+      if (!this.state.contactConfig || this._contactWidget === undefined) throw new Error('Contact unavailable');
+      if (!this._contactToken) {
+        this.resetContactChallenge();
+        this.setState({ challengeErr: true });
+        return;
+      }
+      data.set('cf-turnstile-response', this._contactToken);
+      data.set('name', value('name'));
+      data.set('email', value('email'));
+      data.set('subject', value('subject'));
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString(), signal: AbortSignal.timeout(20000),
+        });
+        if (!response.ok || (await response.json()).success !== true) throw new Error('Contact failed');
+        form.reset();
+        this.setState({ sent: true, challengeErr: false });
+        clearTimeout(this._sentT);
+        this._sentT = setTimeout(() => this.setState({ sent: false }), 6000);
+      } finally { this.resetContactChallenge(); }
+    } catch { this.setState({ sendErr: true }); }
+    finally { this.setState({ sending: false }); }
+  }
   teamList() {
     const he = this.state.lang === 'he';
     return [
@@ -1591,6 +1669,7 @@ class Component extends DCLogic {
   };
   componentDidMount() {
     this.syncDir();
+    this.initContact();
 
     this._raf = requestAnimationFrame(this.guardHero);
     this._vidT = setInterval(this.manageVideos, this._mw ? 1600 : 900);
@@ -2278,11 +2357,19 @@ class Component extends DCLogic {
       subjectLabel: he ? 'נושא' : 'Subject',
       sendLabel: he ? 'שליחה' : 'Send',
       sendLabelLive: this.state.sending ? (he ? 'שולח…' : 'Sending…') : (he ? 'שליחה' : 'Send'),
+      contactDisabled: !!this.state.sending,
       sentLabel: this.state.sendErr
-        ? (he ? 'השליחה נכשלה — כתבו לנו ל‑dana.gourevich@gmail.com' : 'Didn\u2019t send — email dana.gourevich@gmail.com')
-        : (he ? 'תודה — ההודעה נשלחה' : 'Thanks — your message was sent'),
-      sentOpacity: (this.state.sent || this.state.sendErr) ? 1 : 0,
-      clearErrs: () => { if (this.state.errs) this.setState({ errs: null }); },
+        ? (this.state.contactConfig?.fallbackEmail
+          ? (he ? 'השליחה נכשלה — כתבו לנו ל־' : 'Could not send — email ') + this.state.contactConfig.fallbackEmail
+          : (he ? 'השליחה נכשלה. נסו שוב.' : 'Could not send. Please try again.'))
+        : this.state.challengeErr
+          ? (he ? 'נא להשלים את בדיקת האבטחה ולנסות שוב.' : 'Please complete the security check and try again.')
+          : this.state.sent ? (he ? 'תודה — ההודעה נשלחה' : 'Thanks — your message was sent') : '',
+      sentOpacity: (this.state.sent || this.state.sendErr || this.state.challengeErr) ? 1 : 0,
+      invalidName: !!this.state.errs?.name,
+      invalidEmail: !!this.state.errs?.email,
+      invalidSubject: !!this.state.errs?.subject,
+      clearErrs: () => { if (this.state.errs || this.state.sent) this.setState({ errs: null, sent: false }); },
       bdName: (this.state.errs || {}).name ? '#B4432B' : 'rgba(46,42,36,0.22)',
       bdEmail: (this.state.errs || {}).email ? '#B4432B' : 'rgba(46,42,36,0.22)',
       bdSubject: (this.state.errs || {}).subject ? '#B4432B' : 'rgba(46,42,36,0.22)',
@@ -2293,40 +2380,7 @@ class Component extends DCLogic {
       opEmail: (this.state.errs || {}).email ? 1 : 0,
       opSubject: (this.state.errs || {}).subject ? 1 : 0,
       errH: '16px',
-      contactSubmit: (e) => {
-        e.preventDefault();
-        const form = e.target;
-        if (this.state.sending) return;
-        const d = new FormData(form);
-        const v = (k) => String(d.get(k) || '').trim();
-        const errs = {};
-        if (!v('name')) errs.name = he ? 'נא למלא שם' : 'Please add your name';
-        if (!v('email')) errs.email = he ? 'נא למלא אימייל' : 'Please add your email';
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))) errs.email = he ? 'כתובת אימייל לא תקינה' : 'Check the email address';
-        if (!v('subject')) errs.subject = he ? 'נא לכתוב הודעה' : 'Please write a message';
-        if (Object.keys(errs).length) {
-          this.setState({ errs, sendErr: false });
-          const first = form.querySelector('[name="' + Object.keys(errs)[0] + '"]');
-          if (first) first.focus();
-          return;
-        }
-        this.setState({ errs: null });
-        this.setState({ sending: true, sendErr: false });
-        const body = new URLSearchParams(new FormData(form)).toString();
-        fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
-          .then((r) => {
-            if (!r.ok) throw new Error(r.status);
-            form.reset();
-            this.setState({ sent: true, sending: false });
-            clearTimeout(this._sentT);
-            this._sentT = setTimeout(() => this.setState({ sent: false }), 6000);
-          })
-          .catch(() => {
-            this.setState({ sending: false, sendErr: true });
-            clearTimeout(this._sentT);
-            this._sentT = setTimeout(() => this.setState({ sendErr: false }), 6000);
-          });
-      },
+      contactSubmit: (e) => this.submitContact(e),
       armsHeading: he ? 'שלוש זרועות הפעילות' : 'Our Three Operational Arms',
       armsLead: he
         ? 'ישראלאבס יוצרת את התנאים המאפשרים פריצות דרך מדעיות באמצעות שלוש זרועות משלימות, הפועלות לקידום מחקר בסיסי, הקמת תשתיות מחקר לאומיות ופיתוח יוזמות מדעיות חדשניות.'
