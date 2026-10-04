@@ -344,6 +344,23 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
 [dir="rtl"] .m-lksec .m-lkdetail a:hover .m-arrow{transform:scaleX(-1) translate(2px,-2px);}
 @media (prefers-reduced-motion:reduce){.m-ico,.m-ico *{transition:none !important;}}
 </style>
+<style data-variant="heebo-assistant">
+/* Variant: Hebrew headings in Heebo, Hebrew text in Assistant.
+   size-adjust matches Ploni's letter height so the layout keeps its proportions. */
+@font-face{font-family:'IL Heebo';src:url('assets/fonts/heebo-hebrew-400-normal.woff2') format('woff2');font-weight:400;size-adjust:95%;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+@font-face{font-family:'IL Heebo';src:url('assets/fonts/heebo-hebrew-500-normal.woff2') format('woff2');font-weight:500;size-adjust:95%;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+@font-face{font-family:'IL Assistant';src:url('assets/fonts/assistant-hebrew-400-normal.woff2') format('woff2');font-weight:400;size-adjust:100%;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+@font-face{font-family:'IL Assistant';src:url('assets/fonts/assistant-hebrew-500-normal.woff2') format('woff2');font-weight:500;size-adjust:100%;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+[dir="rtl"],[dir="rtl"] *,[style*="Ploni"]{font-family:'IL Assistant','Untitled Sans',sans-serif !important;}
+[dir="rtl"] h1,[dir="rtl"] h1 *,[dir="rtl"] h2,[dir="rtl"] h2 *,[dir="rtl"] h3,[dir="rtl"] h3 *,
+[dir="rtl"].m-tag,[dir="rtl"] .m-tag,[dir="rtl"] #intro p,[dir="rtl"] #intro p *,
+[dir="rtl"] .m-lkbody > div:first-child > p:first-child,
+[dir="rtl"] #team-color5 > div:last-of-type > div > div:first-child > div:nth-child(2),
+[dir="rtl"] #team-color2 .m-mobteam > div > div:first-child > div:nth-child(2) > div,
+[dir="rtl"] #rows .m-news > div:last-child > div:nth-child(2),
+[dir="rtl"] #rows .m-est .m-row > div:last-child > div:first-child,
+.m-menu[dir="rtl"] > div > a{font-family:'IL Heebo','Untitled Sans',sans-serif !important;}
+</style>
 </helmet>
 <div ref="{{ tintRef }}" style="position:fixed;inset:0;background:#14120F;transition:background 0.6s ease;z-index:-1;pointer-events:none;"></div>
 
