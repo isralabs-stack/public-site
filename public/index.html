@@ -189,9 +189,9 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
 .m-vennwrap{height:190vh !important;}
 #arms-venn-ascii svg{max-height:none !important;}
 #arms-venn-ascii text[data-v^="l"]{font-size:26px !important;}
-#arms-venn-ascii [data-v="big"] > text{font-size:32px !important;}
+#arms-venn-ascii [data-v="big"] > image{transform:scale(1.6);}
 #arms-venn-ascii text[data-v="p0"],#arms-venn-ascii text[data-v="p1"],#arms-venn-ascii text[data-v="eq"]{font-size:32px !important;}
-#arms-venn-ascii [data-v="il"] > text{font-size:30px !important;}
+#arms-venn-ascii [data-v="il"] > image{transform:scale(1.3);}
 #intro p{font-size:clamp(20px,5.4vw,30px) !important;}
 .m-introwrap{height:auto !important;min-height:100vh !important;}
 .m-introwrap > div{position:relative !important;height:auto !important;min-height:100vh !important;}
@@ -213,6 +213,154 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
 .m-lksec .m-lkdetail a{font-size:15px !important;}
 }
 </style>
+<style data-ds="isralabs-design-system">
+/* IsraLabs design system: tokens + layout, type and component rules. Edit tokens in :root. */
+:root{
+  --c-ink:#2E2A24; --c-ink-2:rgba(46,42,36,0.72); --c-ink-3:rgba(46,42,36,0.56); --c-line:rgba(46,42,36,0.12);
+  --c-paper:#F6F3EE; --c-paper-2:rgba(246,243,238,0.72); --c-paper-3:rgba(246,243,238,0.5); --c-line-d:rgba(246,243,238,0.14);
+  --c-night:#14120F;
+  --container:1240px; --gutter:44px; --col-gap:32px;
+  --section-y:120px; --title-gap:32px;
+  --fs-h2:34px; --fs-h3:24px; --fs-body:17px; --fs-small:15px; --fs-label:12px; --fs-cta:14px; --fs-caption:13px;
+}
+@media (max-width:760px){:root{--gutter:20px; --section-y:80px; --title-gap:24px; --fs-h2:28px; --fs-h3:22px;}}
+
+#mission{padding:var(--section-y) var(--gutter) !important;}
+#mission .m-two{gap:48px var(--col-gap) !important;}
+#mission .m-two > div:first-child{gap:var(--title-gap) !important;max-width:none !important;}
+#mission .m-two > div:last-child{gap:40px !important;padding-top:7px;}
+@media (max-width:760px){#mission .m-two > div:last-child{padding-top:0;}}
+#mission h2{font-size:var(--fs-h2) !important;line-height:1.1 !important;letter-spacing:-0.03em !important;}
+#mission .m-two > div:last-child h2{font-size:var(--fs-h3) !important;line-height:1.25 !important;letter-spacing:-0.02em !important;}
+#mission p,#mission li{font-size:var(--fs-body) !important;line-height:1.55 !important;color:var(--c-ink-2) !important;}
+#mission ul{gap:8px !important;color:var(--c-ink-2) !important;}
+@media (max-width:760px){#mission .m-two{margin-top:0 !important;padding-top:0 !important;gap:48px !important;}}
+
+.m-lksec .m-pxpad,.m-pxsec .m-pxpad{max-width:calc(var(--container) + 2 * var(--gutter)) !important;padding:0 var(--gutter) !important;}
+.m-lksec .m-lkbody > div:first-child > a{font-size:var(--fs-body) !important;}
+.m-lksec .m-lkdetail a{font-size:var(--fs-body) !important;}
+@media (max-width:760px){.m-lksec .m-lkdetail p,.m-lksec .m-lkdetail p:first-child{font-size:var(--fs-small) !important;}}
+
+#team-color5{padding:var(--section-y) 0 !important;}
+#team-color5 > div{max-width:calc(var(--container) + 2 * var(--gutter)) !important;padding:0 var(--gutter) !important;}
+#team-color5 > div:first-of-type{margin-bottom:var(--title-gap) !important;}
+#team-color5 > div:last-of-type{column-gap:var(--col-gap) !important;}
+#team-color5 > div:last-of-type > div{padding:24px 0 !important;}
+#team-color5 > div:last-of-type > div > div:first-child{gap:24px !important;}
+#team-color5 > div:last-of-type > div > div:last-child > div > div{font-size:var(--fs-body) !important;color:var(--c-paper-2) !important;}
+#team-color5 h2,#team-color2 h2{font-size:var(--fs-h2) !important;letter-spacing:-0.03em !important;}
+@media (max-width:900px){
+#team-color2{padding:var(--section-y) 0 !important;}
+#team-color2 > div:first-of-type{justify-content:flex-start !important;padding:0 var(--gutter) !important;margin-bottom:var(--title-gap) !important;}
+#team-color2 .m-mobteam{padding:0 var(--gutter) !important;}
+#team-color2 .m-mobteam > div{padding:16px 0 !important;}
+#team-color2 .m-mobteam > div > div:last-child > div{font-size:var(--fs-body) !important;color:var(--c-paper-2) !important;}
+}
+
+#rows{padding:var(--section-y) var(--gutter) !important;}
+#rows > div{gap:var(--section-y) !important;}
+#rows h2{margin:0 0 calc(var(--title-gap) - 26px) !important;font-size:var(--fs-h2) !important;letter-spacing:-0.03em !important;}
+#rows .m-cols2{column-gap:var(--col-gap) !important;}
+#rows .m-row > div:last-child{gap:6px !important;}
+#rows .m-news > div:last-child > div:first-child{font-size:var(--fs-label) !important;letter-spacing:0.14em !important;color:var(--c-ink-3) !important;}
+#rows .m-row > div:last-child > div:nth-last-child(1):not(.m-readmore),#rows .m-news > div:last-child > div:nth-child(3){font-size:var(--fs-small) !important;line-height:1.5 !important;color:var(--c-ink-3) !important;}
+#rows .m-readmore{font-size:var(--fs-cta) !important;letter-spacing:0.02em !important;}
+@media (max-width:760px){
+#rows h2{margin-bottom:calc(var(--title-gap) - 20px) !important;}
+#rows .m-row > div:last-child > div:nth-child(2){font-size:var(--fs-body) !important;}
+#rows .m-row > div:last-child > div:last-child:not(.m-readmore),#rows .m-est .m-row > div:last-child > div:last-child{font-size:var(--fs-small) !important;}
+#rows .m-est .m-row > div:last-child > div:first-child{font-size:var(--fs-body) !important;}
+}
+
+#contact{padding:0 var(--gutter) var(--section-y) !important;}
+#contact .m-contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:48px var(--col-gap) !important;}
+#contact .m-contact > div:first-child{gap:16px !important;}
+#contact h2{font-size:var(--fs-h2) !important;letter-spacing:-0.03em !important;}
+#contact p{font-size:var(--fs-body) !important;line-height:1.55 !important;color:var(--c-ink-2) !important;}
+#contact label > span:first-child{font-size:var(--fs-small) !important;color:var(--c-ink-3) !important;}
+#contact input,#contact textarea{font-size:var(--fs-body) !important;}
+#contact .m-form{gap:24px var(--col-gap) !important;}
+@media (max-width:760px){#contact .m-contact{grid-template-columns:1fr !important;}#contact .m-form{grid-template-columns:1fr !important;}}
+
+/* B1: header collision 761-1100px -> burger menu */
+@media (max-width:1100px){.m-nav{display:none !important;}.m-burger{display:flex !important;}.m-menu{display:block !important;}.m-head{padding:10px var(--gutter) !important;}}
+/* menu aligned to gutter, 44px+ rows */
+.m-menu > div{padding:96px var(--gutter) 40px !important;}
+.m-menu > div > a{min-height:48px;display:flex !important;align-items:center;}
+.m-menu > div > div a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
+/* B2: team rows on narrow phones */
+@media (max-width:420px){#team-color2 .m-mobteam > div > div:first-child > div:first-child{width:clamp(72px,24vw,96px) !important;height:clamp(72px,24vw,96px) !important;}
+#team-color2 .m-mobteam > div > div:first-child > div:nth-child(2) > div{font-size:18px !important;overflow-wrap:anywhere;}}
+/* B3: arms titles on very narrow phones */
+@media (max-width:340px){.m-lksec .m-lkrow{font-size:28px !important;}}
+/* B4: phone landscape */
+@media (max-height:500px) and (orientation:landscape){.m-lksec .m-lkrow{font-size:40px !important;}.m-lksec .m-lktext{height:auto !important;min-height:0 !important;}.m-lksec .m-lkbody{margin-top:8px !important;gap:40px !important;}.m-lksec div:has(> .m-pxpad){align-items:flex-start !important;padding-top:64px;}.m-lksec .m-lkbody p:first-child{font-size:19px !important;}.m-lksec .m-lkbody p{font-size:15px !important;}}
+/* B6: visible keyboard focus */
+a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid currentColor !important;outline-offset:3px;border-radius:4px;}
+/* B7: tap targets */
+@media (hover:none){.m-lksec .m-lkbody a{min-height:44px;}footer .m-foot-cols a{min-height:44px;}}
+/* B9: Safari blur */
+.m-head{-webkit-backdrop-filter:blur(10px);}
+
+#mission h2,#team-color5 h2,#team-color2 h2,#rows h2,#contact h2{line-height:1.1 !important;}
+#rows .m-row > div:last-child > div,#contact label span,.m-nav a,footer .m-foot-cols > div > div:first-child{line-height:1.4 !important;}
+#intro [style*="460"]{font-weight:500 !important;}
+/* Hebrew: no tight or wide tracking */
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] p,[dir="rtl"] li,[dir="rtl"] div,[dir="rtl"] span,[dir="rtl"] a{letter-spacing:0 !important;}
+[dir="rtl"] .m-lkword,[dir="rtl"] #intro *{letter-spacing:-0.01em !important;}
+[dir="rtl"] p,[dir="rtl"] li{line-height:1.6 !important;}
+
+/* Text link: one style everywhere */
+.m-lksec .m-lkbody > div:first-child > a,.m-lksec .m-lkdetail a,#rows .m-readmore{font-size:var(--fs-body) !important;color:inherit;border-bottom:none !important;text-decoration:underline !important;text-decoration-thickness:1px !important;text-underline-offset:2px !important;padding-bottom:0 !important;letter-spacing:0 !important;}
+#rows .m-readmore{font-size:var(--fs-cta) !important;opacity:1 !important;transform:none !important;margin-top:8px !important;}
+/* Thumbnails: one size, one radius */
+#team-color5 > div:last-of-type > div > div:first-child > div:first-child,#rows .m-row > div:first-child{width:128px !important;height:128px !important;border-radius:12px !important;}
+#rows .m-row{grid-template-columns:128px minmax(0,1fr) !important;gap:24px !important;padding:24px 0 !important;}
+#rows .m-news > div:first-child{height:128px !important;}
+#rows .m-news{align-items:start !important;}
+#rows .m-news > div:last-child{margin-top:-3px;}
+@media (min-width:761px){#rows .m-cols2:not(.m-est){align-items:stretch !important;}#rows .m-news{align-items:stretch !important;}#rows .m-news > div:first-child{height:auto !important;min-height:128px;position:relative;}#rows .m-news > div:first-child > *{position:absolute !important;inset:0;width:100% !important;height:100% !important;object-fit:cover;}#rows .m-news .m-readmore{margin-top:auto !important;padding-top:12px;line-height:1 !important;}}
+#rows .m-news > div:first-child:empty,#rows .m-news > div:first-child:not(:has(img)){background:rgba(46,42,36,0.05);}
+@media (max-width:760px){#rows .m-row{grid-template-columns:88px minmax(0,1fr) !important;gap:16px !important;}#rows .m-row > div:first-child,#rows .m-news > div:first-child{width:88px !important;height:88px !important;}
+#team-color2 .m-mobteam > div > div:first-child > div:first-child{border-radius:12px !important;}}
+/* Dividers: one weight per theme */
+#rows .m-row{border-bottom-color:var(--c-line) !important;}
+#team-color5 > div:last-of-type > div,#team-color5 > div:last-of-type > div:last-child,#team-color2 .m-mobteam > div{border-top-color:var(--c-line-d) !important;}
+/* Expand icon: same weight as text */
+#team-color5 > div:last-of-type > div > div:first-child > div:last-child{opacity:0.72 !important;}
+
+/* Wide screens: one step up in container and type above 1920 */
+@media (min-width:1920px){
+:root{--container:1440px;--section-y:144px;--title-gap:40px;--fs-h2:40px;--fs-h3:28px;--fs-body:19px;--fs-small:16px;--fs-label:13px;--fs-cta:15px;}
+#mission .m-two,#rows > div,#contact .m-contact,footer .m-foot,footer > div:nth-of-type(2),.m-head > div,#intro [style*="max-width"]{max-width:var(--container) !important;}
+.m-nav a,.m-nav{font-size:16px !important;}
+}
+
+/* Link icons */
+.m-lksec .m-lkdetail a{display:inline-flex !important;align-items:center;gap:9px;}
+.m-lksec .m-lkdetail a:hover .m-arrow,.m-lksec .m-lkdetail a:focus-visible .m-arrow{transform:translate(2px,-2px);}
+.m-lksec .m-lkbody > div:first-child > a:hover .m-ico{transform-origin:center;}
+[dir="rtl"] .m-arrow{transform:scaleX(-1);}
+[dir="rtl"] .m-lksec .m-lkdetail a:hover .m-arrow{transform:scaleX(-1) translate(2px,-2px);}
+@media (prefers-reduced-motion:reduce){.m-ico,.m-ico *{transition:none !important;}}
+</style>
+<style data-variant="heebo-assistant">
+/* Variant: Hebrew headings in Heebo, Hebrew text in Assistant.
+   size-adjust matches Ploni's letter height so the layout keeps its proportions. */
+@font-face{font-family:'IL Heebo';src:url('assets/fonts/heebo-hebrew-400-normal.woff2') format('woff2');font-weight:400;size-adjust:95%;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+@font-face{font-family:'IL Heebo';src:url('assets/fonts/heebo-hebrew-500-normal.woff2') format('woff2');font-weight:500;size-adjust:95%;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+@font-face{font-family:'IL Assistant';src:url('assets/fonts/assistant-hebrew-400-normal.woff2') format('woff2');font-weight:400;size-adjust:100%;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+@font-face{font-family:'IL Assistant';src:url('assets/fonts/assistant-hebrew-500-normal.woff2') format('woff2');font-weight:500;size-adjust:100%;unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+[dir="rtl"],[dir="rtl"] *,[style*="Ploni"]{font-family:'IL Assistant','Untitled Sans',sans-serif !important;}
+[dir="rtl"] h1,[dir="rtl"] h1 *,[dir="rtl"] h2,[dir="rtl"] h2 *,[dir="rtl"] h3,[dir="rtl"] h3 *,
+[dir="rtl"].m-tag,[dir="rtl"] .m-tag,[dir="rtl"] #intro p,[dir="rtl"] #intro p *,
+[dir="rtl"] .m-lkbody > div:first-child > p:first-child,
+[dir="rtl"] #team-color5 > div:last-of-type > div > div:first-child > div:nth-child(2),
+[dir="rtl"] #team-color2 .m-mobteam > div > div:first-child > div:nth-child(2) > div,
+[dir="rtl"] #rows .m-news > div:last-child > div:nth-child(2),
+[dir="rtl"] #rows .m-est .m-row > div:last-child > div:first-child,
+.m-menu[dir="rtl"] > div > a{font-family:'IL Heebo','Untitled Sans',sans-serif !important;}
+</style>
 </helmet>
 <div ref="{{ tintRef }}" style="position:fixed;inset:0;background:#14120F;transition:background 0.6s ease;z-index:-1;pointer-events:none;"></div>
 
@@ -231,15 +379,15 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
     </svg></sc-if>
     <nav class="m-nav" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:clamp(14px,2.2vw,30px);font-size:15px;letter-spacing:-0.1px;">
       <sc-for list="{{ navItems }}" as="ni" hint-placeholder-count="6">
-        <a onClick="{{ ni.go }}" style="position:relative;color:{{ navColor }};cursor:pointer;white-space:nowrap;transition:color 0.5s ease,opacity 0.25s ease;" style-hover="opacity:0.6;">{{ ni.label }}</a>
+        <a onClick="{{ ni.go }}" tabIndex="0" role="link" style="position:relative;color:{{ navColor }};cursor:pointer;white-space:nowrap;transition:color 0.5s ease,opacity 0.25s ease;" style-hover="opacity:0.6;">{{ ni.label }}</a>
       </sc-for>
     </nav>
-    <div class="m-nav" dir="ltr" onClick="{{ toggleLang }}" style="display:flex;align-items:center;gap:4px;font-size:15px;margin-left:auto;font-family:'Ploni','Untitled Sans',sans-serif;cursor:pointer;" style-hover="opacity:0.85;">
+    <div class="m-nav" dir="ltr" onClick="{{ toggleLang }}" tabIndex="0" role="button" aria-label="Switch language / החלפת שפה" style="display:flex;align-items:center;gap:4px;font-size:15px;margin-left:auto;font-family:'Ploni','Untitled Sans',sans-serif;cursor:pointer;" style-hover="opacity:0.85;">
       <a style="color:{{ navColor }};opacity:{{ enOpacity }};transition:color 0.5s ease,opacity 0.25s ease;">EN</a>
       <span style="color:{{ navColor }};opacity:0.3;transition:color 0.5s ease;">/</span>
       <a style="color:{{ navColor }};opacity:{{ heOpacity }};transition:color 0.5s ease,opacity 0.25s ease;">עב</a>
     </div>
-    <a class="m-burger" onClick="{{ toggleMenu }}" aria-label="Menu" style="display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-inline-start:auto;">
+    <a class="m-burger" onClick="{{ toggleMenu }}" aria-label="Menu" tabIndex="0" role="button" aria-expanded="{{ menuExpanded }}" style="display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-inline-start:auto;">
       <span style="display:block;width:22px;height:2px;background:{{ navColor }};transition:transform 0.3s ease,background 0.5s ease;transform:{{ burger1 }};"></span>
       <span style="display:block;width:22px;height:2px;background:{{ navColor }};transition:opacity 0.2s ease,background 0.5s ease;opacity:{{ burgerMidOp }};"></span>
       <span style="display:block;width:22px;height:2px;background:{{ navColor }};transition:transform 0.3s ease,background 0.5s ease;transform:{{ burger2 }};"></span>
@@ -249,12 +397,12 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
 <div class="m-menu" dir="{{ dirAttr }}" style="position:fixed;inset:0;z-index:29;background:{{ menuBg }};display:none;opacity:{{ menuOp }};pointer-events:{{ menuPe }};transition:opacity 0.35s ease,background 0.5s ease;font-family:'Untitled Sans',sans-serif;">
   <div style="display:flex;flex-direction:column;gap:4px;padding:100px 24px 40px;">
     <sc-for list="{{ menuItems }}" as="mi" hint-placeholder-count="7">
-      <a onClick="{{ mi.go }}" style="font-size:29px;letter-spacing:-0.04em;line-height:1.35;color:{{ navColor }};cursor:pointer;padding:6px 0;">{{ mi.label }}</a>
+      <a onClick="{{ mi.go }}" tabIndex="0" role="link" style="font-size:29px;letter-spacing:-0.04em;line-height:1.35;color:{{ navColor }};cursor:pointer;padding:6px 0;">{{ mi.label }}</a>
     </sc-for>
     <div style="display:flex;align-items:center;gap:12px;margin-top:28px;font-size:17px;">
-      <a onClick="{{ setEn }}" style="cursor:pointer;color:{{ navColor }};opacity:{{ enOpacity }};">EN</a>
+      <a onClick="{{ setEn }}" tabIndex="0" role="button" lang="en" style="cursor:pointer;color:{{ navColor }};opacity:{{ enOpacity }};">EN</a>
       <span style="color:{{ navColor }};opacity:0.3;">/</span>
-      <a onClick="{{ setHe }}" style="cursor:pointer;color:{{ navColor }};opacity:{{ heOpacity }};">עב</a>
+      <a onClick="{{ setHe }}" tabIndex="0" role="button" lang="he" style="cursor:pointer;color:{{ navColor }};opacity:{{ heOpacity }};">עב</a>
     </div>
   </div>
 </div>
@@ -380,68 +528,6 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
   </div>
 </section>
 
-<sc-for list="{{ pxVariants }}" as="v" hint-placeholder-count="1">
-<section id="{{ v.secId }}" class="m-pxsec" data-screen-label="{{ v.label }}" data-tint="#14120F" dir="{{ dirAttr }}" style="background:transparent;color:#F2EEE7;font-family:'Untitled Sans',sans-serif;">
-  <div class="m-pxwrap" ref="{{ v.wrapRef }}" style="position:relative;height:460vh;">
-    <sc-if value="{{ v.first }}" hint-placeholder-val="{{ true }}">
-    <span id="pxa-0" style="position:absolute;left:0;top:0;width:1px;height:45%;pointer-events:none;"></span>
-    <span id="pxa-1" style="position:absolute;left:0;top:45%;width:1px;height:27%;pointer-events:none;"></span>
-    <span id="pxa-2" style="position:absolute;left:0;top:72%;width:1px;height:28%;pointer-events:none;"></span>
-    </sc-if>
-    <div ref="{{ v.stickRef }}" style="position:absolute;top:0;left:0;right:0;height:100vh;overflow:hidden;background:#14120F;">
-      <sc-if value="{{ v.isImgBg }}" hint-placeholder-val="{{ false }}">
-      <div style="position:absolute;inset:0;overflow:hidden;">
-        <sc-for list="{{ v.bgs }}" as="b" hint-placeholder-count="3">
-          <div ref="{{ b.ref }}" style="position:absolute;inset:-6%;background-image:url('{{ b.img }}');background-size:cover;background-position:center;filter:saturate(0.72) contrast(1.02);opacity:0;will-change:transform,opacity;"></div>
-        </sc-for>
-        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,16,0.3) 0%,rgba(20,18,16,0.66) 58%,rgba(20,18,16,0.82) 100%);"></div>
-      </div>
-      </sc-if>
-      <div style="position:absolute;inset:0;">
-        <div class="m-pxpad" style="position:relative;height:100%;max-width:1240px;margin:0 auto;padding:0 44px;box-sizing:border-box;">
-          <div class="m-pxmark" ref="{{ v.markRef }}" style="position:absolute;top:50%;inset-inline-start:calc(25% - min(210px,16vw));width:min(420px,32vw);transform:translateY(-50%);pointer-events:none;">
-            <svg viewBox="39 37 164 163" style="width:100%;height:auto;display:block;overflow:visible;shape-rendering:geometricPrecision;">
-              <g>
-                <ellipse ref="{{ v.s0Ref }}" cx="118" cy="118.5" rx="77" ry="77" fill="none" stroke="#F2EEE7" style="stroke-width:1.7;stroke-linecap:round;opacity:0;"></ellipse>
-                <ellipse ref="{{ v.s1Ref }}" cx="149.685" cy="118.5" rx="45.2931" ry="77" fill="none" stroke="#F2EEE7" style="stroke-width:1.7;stroke-linecap:round;opacity:0;"></ellipse>
-                <ellipse ref="{{ v.s2Ref }}" cx="177.938" cy="118.5" rx="17.041" ry="77" fill="none" stroke="#F2EEE7" style="stroke-width:1.7;stroke-linecap:round;opacity:0;"></ellipse>
-                <line ref="{{ v.barRef }}" x1="201" y1="197.5" x2="201" y2="39.5" stroke="#FFFFFF" style="stroke-width:1.7;stroke-linecap:round;stroke-dasharray:158;stroke-dashoffset:158;opacity:0;"></line>
-              </g>
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div class="m-pxtextwrap" style="position:absolute;inset:0;display:flex;align-items:center;">
-        <div class="m-pxpad" style="width:100%;max-width:1240px;margin:0 auto;padding:0 44px;box-sizing:border-box;display:flex;justify-content:flex-end;">
-          <div class="m-pxtext" style="position:relative;height:340px;width:min(56%,600px);">
-            <sc-for list="{{ v.areas }}" as="a" hint-placeholder-count="3">
-              <div ref="{{ a.panelRef }}" style="position:absolute;inset-inline-start:0;top:0;width:100%;opacity:0;pointer-events:none;will-change:transform,opacity;">
-                <div style="overflow:hidden;padding-bottom:4px;margin-top:14px;">
-                  <h3 ref="{{ a.titleRef }}" style="margin:0;font-weight:400;font-size:clamp(42px,5.4vw,88px);line-height:0.98;letter-spacing:-0.045em;color:#F2EEE7;will-change:transform;">{{ a.title }}</h3>
-                </div>
-                <p ref="{{ a.tagRef }}" style="margin:16px 0 0;font-size:17px;line-height:1.45;letter-spacing:0;color:#F2EEE7;max-width:30ch;text-wrap:pretty;opacity:0;will-change:transform;">{{ a.tag }}</p>
-                <p ref="{{ a.bodyRef }}" style="margin:12px 0 0;font-size:17px;line-height:1.5;color:#F2EEE7;max-width:42ch;text-wrap:pretty;opacity:0;will-change:transform;">{{ a.body }}</p>
-                <a ref="{{ a.ctaRef }}" onClick="{{ a.toggle }}" style="margin-top:22px;display:inline-flex;align-items:center;gap:9px;font-size:17px;color:#F2EEE7;cursor:pointer;opacity:0;border-bottom:1px solid #F2EEE7;padding-bottom:3px;will-change:transform;" style-hover="color:#F2EEE7;">{{ a.more }} <span>{{ a.sign }}</span></a>
-                <div ref="{{ a.detailRef }}" style="max-height:0;opacity:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(0.22,0.61,0.36,1),opacity 0.4s ease;">
-                  <div style="display:flex;flex-direction:column;gap:11px;padding-top:18px;max-width:44ch;">
-                    <sc-for list="{{ a.moreList }}" as="p" hint-placeholder-count="2">
-                      <p style="margin:0;font-size:17px;line-height:1.55;color:#F2EEE7;text-wrap:pretty;">{{ p.text }}</p>
-                    </sc-for>
-                    <sc-if value="{{ a.hasLink }}" hint-placeholder-val="{{ false }}">
-                      <a href="{{ a.href }}" target="_blank" style="align-self:flex-start;margin-top:2px;font-size:14px;color:#F2EEE7;border-bottom:1px solid #F2EEE7;padding-bottom:2px;">{{ a.linkLabel }}</a>
-                    </sc-if>
-                  </div>
-                </div>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </div>
-      <div style="position:absolute;inset-inline-end:20px;bottom:16px;font-size:17px;letter-spacing:0.14em;color:#F2EEE7;opacity:0.55;pointer-events:none;">{{ v.label }}</div>
-    </div>
-  </div>
-</section>
-</sc-for>
 <section id="arms-venn-ascii" data-screen-label="Venn ASCII" data-tint="#14120F" dir="ltr" style="background:transparent;color:#F6F3EE;font-family:'Untitled Sans',sans-serif;">
   <div class="m-vennwrap" ref="{{ vennAsciiRef }}" style="position:relative;height:240vh;">
     <div style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;">
@@ -459,7 +545,7 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
           <g data-v="g2" transform="translate(881,431)"><circle cx="120" cy="30" r="620" fill="url(#vgl2)" style="transform-box:fill-box;transform-origin:center;animation:vglA 14s ease-in-out infinite alternate-reverse;opacity:0.35;"></circle></g>
           <g data-v="big" style="opacity:0;">
             <g data-v="bigd" transform="translate(720,325)"></g>
-            <text x="720" y="-4" text-anchor="middle" fill="#FFFFFF" style="font-size:36px;font-weight:500;letter-spacing:-0.6px;">IsraLabs</text>
+            <image href="assets/img/logo-isralabs-mark.svg" x="650" y="-38" width="140" height="40" preserveAspectRatio="xMidYMid meet" aria-label="IsraLabs" style="filter:brightness(0) invert(1);transform-box:fill-box;transform-origin:center;"></image>
           </g>
           <g data-v="f3s"></g>
           <text data-v="f3t" x="720" y="376" text-anchor="middle" fill="#FFFFFF" style="font-size:20px;font-weight:500;font-family:'Untitled Sans',sans-serif;">F3</text>
@@ -475,7 +561,7 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
         <text data-v="eq" x="1052" y="320" text-anchor="middle" fill="#FFFFFF" style="font-size:26px;opacity:0;">=</text>
         <g data-v="il" transform="translate(1265,310)" style="opacity:0;">
           <g data-v="ild"></g>
-          <text x="0" y="9" text-anchor="middle" fill="#FFFFFF" style="font-size:23px;">IsraLabs</text>
+          <image href="assets/img/logo-isralabs-mark.svg" x="-46" y="-13" width="92" height="26" preserveAspectRatio="xMidYMid meet" aria-label="IsraLabs" style="filter:brightness(0) invert(1);transform-box:fill-box;transform-origin:center;"></image>
         </g>
       </svg>
     </div>
@@ -493,7 +579,7 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
     <div ref="{{ v.stickRef }}" style="position:absolute;top:0;left:0;right:0;height:100vh;overflow:hidden;background:transparent;">
       <div style="position:absolute;inset:0;overflow:hidden;background:#14120F;opacity:1;">
         <sc-for list="{{ v.bgs }}" as="b" hint-placeholder-count="3">
-          <div ref="{{ b.ref }}" style="position:absolute;inset:-6%;background-image:url('{{ b.img }}');background-size:cover;background-position:center;filter:saturate(0.72) contrast(1.02);opacity:0;will-change:transform,opacity;"></div>
+          <div ref="{{ b.ref }}" style="position:absolute;inset:-6%;background-image:{{ b.bgUrl }};background-size:cover;background-position:center;filter:saturate(0.72) contrast(1.02);opacity:0;will-change:transform,opacity;"></div>
         </sc-for>
         <div style="position:absolute;inset:0;background:radial-gradient(125% 95% at 50% 46%,rgba(20,18,16,0.42) 0%,rgba(20,18,16,0.8) 66%,rgba(20,18,16,0.94) 100%);"></div>
         <div ref="{{ v.dimRef }}" style="position:absolute;inset:0;background:rgba(20,18,16,0.3);opacity:0;transition:opacity 0.55s ease;"></div>
@@ -517,7 +603,7 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
                   <div style="display:flex;flex-direction:column;gap:12px;width:min(100%,390px);flex:0 0 auto;">
                     <p ref="{{ a.tagRef }}" style="margin:0;font-size:clamp(23px,2.05vw,33px);line-height:1.3;letter-spacing:-0.02em;color:#F2EEE7;text-wrap:pretty;opacity:0;will-change:transform;">{{ a.tag }}</p>
                     <p ref="{{ a.bodyRef }}" style="margin:0;font-size:clamp(17px,1.5vw,24px);line-height:1.45;color:#FFFFFF;text-align:start;text-wrap:pretty;opacity:0;will-change:transform;">{{ a.body }}</p>
-                    <a ref="{{ a.ctaRef }}" onClick="{{ a.toggle }}" style="margin-top:8px;align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font-size:19px;color:#F2EEE7;cursor:pointer;opacity:0;border-bottom:1px solid #F2EEE7;padding-bottom:3px;will-change:transform;" style-hover="color:#F2EEE7;">{{ a.more }} <span>{{ a.sign }}</span></a>
+                    <a ref="{{ a.ctaRef }}" onClick="{{ a.toggle }}" tabIndex="0" role="button" style="margin-top:8px;align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font-size:19px;color:#F2EEE7;cursor:pointer;opacity:0;border-bottom:1px solid #F2EEE7;padding-bottom:3px;will-change:transform;" style-hover="color:#F2EEE7;"><svg class="m-ico" aria-hidden="true" viewBox="0 0 14 14" style="width:12px;height:12px;flex:none;overflow:visible;transform:{{ a.signRot }};transition:transform 0.55s cubic-bezier(0.34,1.56,0.64,1);"><line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line><line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" style="transform-box:view-box;transform-origin:7px 7px;transform:{{ a.signV }};transition:transform 0.35s ease;"></line></svg>{{ a.more }}</a>
                   </div>
                   <div ref="{{ a.detailRef }}" class="m-lkdetail" style="flex:1 1 0;min-width:0;max-height:0;opacity:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(0.22,0.61,0.36,1),opacity 0.4s ease;">
                     <div style="display:flex;flex-direction:column;gap:10px;max-width:66ch;">
@@ -525,7 +611,7 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
                         <p style="margin:0;font-size:clamp(18px,1.5vw,23px);line-height:1.45;color:#FFFFFF;text-align:start;text-wrap:pretty;">{{ p.text }}</p>
                       </sc-for>
                       <sc-if value="{{ a.hasLink }}" hint-placeholder-val="{{ false }}">
-                        <a href="{{ a.href }}" target="_blank" style="align-self:flex-start;margin-top:2px;font-size:14px;color:#F2EEE7;border-bottom:1px solid #F2EEE7;padding-bottom:2px;">{{ a.linkLabel }}</a>
+                        <a href="{{ a.href }}" target="_blank" style="align-self:flex-start;margin-top:2px;font-size:14px;color:#F2EEE7;border-bottom:1px solid #F2EEE7;padding-bottom:2px;"><svg class="m-ico m-arrow" aria-hidden="true" viewBox="0 0 14 14" style="width:11px;height:11px;flex:none;overflow:visible;transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);"><path d="M3 11 L11 3 M5 3 H11 V9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{ a.linkLabel }}</a>
                       </sc-if>
                     </div>
                   </div>
@@ -540,70 +626,7 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
   </div>
 </section>
 </sc-for>
-<sc-if value="{{ armsClassic }}" hint-placeholder-val="{{ false }}">
-<section id="arms-list" data-tint="#FFFFFF" dir="{{ dirAttr }}" style="background:transparent;color:#2E2A24;font-family:'Untitled Sans',sans-serif;padding:60px 44px 40px;">
-  <div style="max-width:1240px;margin:0 auto;">
-    <sc-for list="{{ armRows }}" as="a" hint-placeholder-count="3">
-      <div id="area-{{ $index }}" style="border-top:1px solid rgba(46,42,36,0.15);padding:56px 0 88px;scroll-margin-top:90px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px 96px;align-items:start;">
-        <div style="display:flex;flex-direction:column;gap:28px;">
-          <h3 style="margin:0 0 4px;font-weight:400;font-size:clamp(38px,3.8vw,60px);line-height:1.05;letter-spacing:-0.04em;color:#2E2A24;">{{ a.title }}</h3>
-          <p style="margin:0;font-size:18px;line-height:1.25;color:#2E2A24;max-width:48ch;text-wrap:pretty;">{{ a.body }}</p>
-          <a onClick="{{ a.toggle }}" style="align-self:flex-start;display:flex;align-items:center;gap:8px;font-size:14.5px;color:#2E2A24;cursor:pointer;overflow:hidden;max-height:{{ a.topMax }};opacity:{{ a.topOp }};pointer-events:{{ a.topEvents }};transition:max-height 0.45s cubic-bezier(0.22,1,0.36,1),opacity 0.3s ease;" style-hover="opacity:0.7;">{{ a.ctaLabel }} <span style="display:inline-block;font-size:12px;">▾</span></a>
-          <div style="display:grid;grid-template-rows:{{ a.rows }};transition:grid-template-rows 0.55s cubic-bezier(0.22,1,0.36,1);">
-            <div style="overflow:hidden;min-height:0;">
-              <div style="display:flex;flex-direction:column;gap:18px;padding:4px 0 12px;opacity:{{ a.contentOp }};transform:translateY({{ a.contentY }});transition:opacity 0.45s ease 0.1s,transform 0.5s cubic-bezier(0.22,1,0.36,1) 0.05s;">
-                <h4 style="margin:0;font-weight:400;font-size:23px;letter-spacing:-0.03em;color:#2E2A24;">{{ a.moreTitle }}</h4>
-                <sc-for list="{{ a.morePs }}" as="mp" hint-placeholder-count="2">
-                  <p style="margin:0;font-size:16px;line-height:1.6;color:#8a8a8a;max-width:48ch;text-wrap:pretty;">{{ mp.text }}</p>
-                </sc-for>
-                <sc-if value="{{ a.hasCalls }}" hint-placeholder-val="{{ false }}">
-                  <div style="display:flex;flex-direction:column;gap:12px;margin-top:6px;">
-                    <div style="font-size:17px;color:#2E2A24;">{{ a.callsTitle }}</div>
-                    <p style="margin:0;font-size:16px;line-height:1.6;color:#8a8a8a;max-width:48ch;">{{ a.callsText }}</p>
-                    <a href="https://www.isf.org.il/#/support-channels/59/10" target="_blank" rel="noopener" style="align-self:flex-start;background:#14120F;color:#F6F3EE;font-size:14px;padding:11px 18px;border-radius:6px;" style-hover="opacity:0.82;color:#F6F3EE;">{{ a.callsBtn }}</a>
-                  </div>
-                </sc-if>
-                <a onClick="{{ a.toggle }}" style="align-self:flex-start;display:flex;align-items:center;gap:8px;font-size:14.5px;color:#2E2A24;cursor:pointer;margin-top:4px;" style-hover="opacity:0.7;">{{ a.closeLabel }} <span style="display:inline-block;font-size:12px;">▴</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:28px;">
-          <div style="font-size:20px;line-height:1.3;letter-spacing:-0.02em;color:#2E2A24;max-width:26ch;text-wrap:pretty;padding-top:14px;">{{ a.tag }}</div>
-          <div style="width:100%;aspect-ratio:1/1;overflow:hidden;border-radius:6px;margin-top:12px;background-image:url('{{ a.img }}');background-size:cover;background-position:center;background-color:#EDE8DF;"></div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</section>
-</sc-if>
 <span id="team" style="display:block;"></span>
-<sc-if value="{{ showTeamSwitch }}" hint-placeholder-val="{{ false }}">
-<div dir="ltr" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:70px 20px 0;background:transparent;">
-  <sc-for list="{{ teamVariants }}" as="v" hint-placeholder-count="4">
-    <button onClick="{{ v.pick }}" style="font-family:'Untitled Sans',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 16px;border-radius:999px;cursor:pointer;color:{{ v.ink }};background:{{ v.bg }};border:1px solid {{ v.bd }};transition:all 0.25s ease;">{{ v.label }}</button>
-  </sc-for>
-</div>
-</sc-if>
-<sc-if value="{{ showColorRail }}" hint-placeholder-val="{{ true }}">
-<section id="team-color" data-tint="#14120F" dir="{{ dirAttr }}" style="min-height:100vh;background:transparent;color:#F6F3EE;font-family:'Untitled Sans',sans-serif;padding:110px 0 120px;">
-  <div style="max-width:1400px;margin:0 auto 64px;padding:0 44px;text-align:center;">
-    <h2 style="margin: 0; font-family: Untitled Sans; font-weight: 400; font-size: 34px; letter-spacing: -1px">{{ teamHeading }}</h2>
-  </div>
-  <div class="m-rail" ref="{{ railRef }}" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:48px 28px;padding:0 44px;max-width:1400px;margin:0 auto;">
-    <sc-for list="{{ portraits }}" as="p" hint-placeholder-count="7">
-      <div style="min-width:0;display:flex;flex-direction:column;">
-        <div onMouseEnter="{{ p.on }}" onMouseLeave="{{ p.off }}" style="width: 100%; aspect-ratio: 1/1.02; overflow: hidden; border-radius: 12px; container-type: inline-size; background: {{ p.bg }}; font-size: 16px">
-          {{ p.art }}
-        </div>
-        <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px;">
-          <div style="font-family:'Untitled Sans',sans-serif;font-size:20px;letter-spacing:-0.4px;line-height:1.15;">{{ p.name }}</div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</section>
-</sc-if>
 <sc-if value="{{ showColorRail2 }}" hint-placeholder-val="{{ true }}">
 <section id="team-color2" data-tint="#14120F" dir="{{ dirAttr }}" style="min-height:100vh;background:transparent;color:#F6F3EE;font-family:'Untitled Sans',sans-serif;padding:140px 0 120px;display:flex;flex-direction:column;justify-content:center;">
   <div style="width:100%;box-sizing:border-box;max-width:1400px;margin:0 auto 56px;padding:0 44px;display:flex;align-items:baseline;justify-content:center;gap:32px;flex-wrap:wrap;">
@@ -629,7 +652,7 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
   </div>
   <div class="m-mobteam" style="display:none;width:100%;box-sizing:border-box;flex-direction:column;padding:0 20px;">
     <sc-for list="{{ portraits }}" as="p" hint-placeholder-count="7">
-      <div onClick="{{ p.tog }}" style="display:flex;flex-direction:column;border-top:1px solid rgba(246,243,238,0.14);padding:16px 12px 18px;cursor:pointer;">
+      <div onClick="{{ p.tog }}" tabIndex="0" role="button" style="display:flex;flex-direction:column;border-top:1px solid rgba(246,243,238,0.14);padding:16px 12px 18px;cursor:pointer;">
         <div style="display:flex;align-items:center;gap:16px;">
           <div style="flex:none;width:118px;height:118px;border-radius:10px;overflow:hidden;background:{{ p.bg }};">{{ p.art2 }}</div>
           <div style="flex:1;min-width:0;display:flex;flex-direction:column;">
@@ -656,7 +679,7 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
   </div>
   <div style="max-width:1400px;margin:0 auto;padding:0 44px;width:100%;box-sizing:border-box;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px;align-items:start;">
     <sc-for list="{{ portraits }}" as="p" hint-placeholder-count="7">
-      <div onClick="{{ p.tog }}" style="display:flex;flex-direction:column;border-top:1px solid rgba(246,243,238,0.14);padding:20px 8px 22px;cursor:pointer;">
+      <div onClick="{{ p.tog }}" tabIndex="0" role="button" style="display:flex;flex-direction:column;border-top:1px solid rgba(246,243,238,0.14);padding:20px 8px 22px;cursor:pointer;">
         <div style="display:flex;align-items:center;gap:26px;">
           <div style="flex:none;width:132px;height:132px;border-radius:12px;overflow:hidden;background:{{ p.bg }};">{{ p.art2 }}</div>
           <div style="flex:1;min-width:0;font-size:24px;letter-spacing:-0.5px;line-height:1.2;">{{ p.name }}</div>
@@ -676,113 +699,6 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
   </div>
 </section>
 </sc-if>
-<sc-if value="{{ showColorful1 }}" hint-placeholder-val="{{ false }}">
-<section id="team-color3" data-tint="#FAF7F1" dir="{{ dirAttr }}" style="min-height:100vh;background:#FAF7F1;color:#2E2A24;font-family:'Untitled Sans',sans-serif;padding:110px 0 120px;">
-  <div style="max-width:1400px;margin:0 auto 56px;padding:0 44px;text-align:center;">
-    <h2 style="margin:0;font-family:'Untitled Sans',sans-serif;font-weight:400;font-size:34px;letter-spacing:-1px;">{{ teamHeading }}</h2>
-  </div>
-  <div class="m-rail" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 26px;padding:0 44px;max-width:1400px;margin:0 auto;">
-    <sc-for list="{{ portraits }}" as="p" hint-placeholder-count="7">
-      <div onMouseEnter="{{ p.on }}" onMouseLeave="{{ p.off }}" style="min-width:0;display:flex;flex-direction:column;">
-        <div style="width:100%;aspect-ratio:1/1.02;overflow:hidden;border-radius:14px;background:{{ p.fg }};">
-          {{ p.art3 }}
-        </div>
-        <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;">
-          <div style="font-size:20px;letter-spacing:-0.4px;line-height:1.15;">{{ p.name }}</div>
-          <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(46,42,36,0.7);display:flex;align-items:center;gap:7px;"><span style="width:7px;height:7px;border-radius:50%;background:{{ p.fg }};display:block;flex:none;"></span>{{ p.role }}</div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</section>
-</sc-if>
-<sc-if value="{{ showColorful2 }}" hint-placeholder-val="{{ false }}">
-<section id="team-color4" data-tint="#FAF7F1" dir="{{ dirAttr }}" style="min-height:100vh;background:#FAF7F1;color:#2E2A24;font-family:'Untitled Sans',sans-serif;padding:110px 0 120px;">
-  <div style="max-width:1400px;margin:0 auto 48px;padding:0 44px;display:flex;align-items:baseline;justify-content:space-between;gap:32px;flex-wrap:wrap;">
-    <h2 style="margin:0;font-family:'Untitled Sans',sans-serif;font-weight:400;font-size:34px;letter-spacing:-1px;">{{ teamHeading }}</h2>
-    <div style="font-size:11px;letter-spacing:0.18em;color:rgba(46,42,36,0.5);">{{ selPickLabel }}</div>
-  </div>
-  <div class="m-rail" style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:20px 14px;padding:0 44px;max-width:1400px;margin:0 auto;">
-    <sc-for list="{{ portraits }}" as="p" hint-placeholder-count="7">
-      <div onClick="{{ p.sel }}" onMouseEnter="{{ p.sel }}" style="min-width:0;display:flex;flex-direction:column;cursor:pointer;opacity:{{ p.selOpacity }};transition:opacity 0.35s ease;">
-        <div style="width:100%;aspect-ratio:1/1.02;overflow:hidden;border-radius:12px;background:{{ p.fg }};">
-          {{ p.art3 }}
-        </div>
-        <div style="margin-top:10px;font-size:15px;letter-spacing:-0.2px;line-height:1.2;">{{ p.name }}</div>
-      </div>
-    </sc-for>
-  </div>
-  <div class="m-bio2" style="max-width:1400px;margin:48px auto 0;padding:0 44px;">
-    <div class="m-bio4" style="background:{{ selBg }};border-radius:18px;padding:34px 38px;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:36px;align-items:start;">
-      <div class="m-bio2head" style="display:flex;align-items:center;gap:16px;">
-        <div style="flex:none;width:78px;height:78px;border-radius:12px;overflow:hidden;background:{{ selFg }};">{{ selThumb }}</div>
-        <div style="min-width:0;display:flex;flex-direction:column;gap:6px;">
-          <div style="font-size:27px;letter-spacing:-0.9px;line-height:1.1;color:#2E2A24;">{{ selName }}</div>
-          <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(46,42,36,0.7);display:flex;align-items:center;gap:7px;"><span style="width:7px;height:7px;border-radius:50%;background:{{ selFg }};display:block;flex:none;"></span>{{ selRole }}</div>
-        </div>
-      </div>
-      <div style="font-size:19px;line-height:1.6;color:rgba(46,42,36,0.85);max-width:74ch;text-wrap:pretty;">{{ selBio }}</div>
-    </div>
-  </div>
-</section>
-</sc-if>
-<sc-if value="{{ showNameList }}" hint-placeholder-val="{{ false }}">
-<section id="team-names" dir="{{ dirAttr }}" style="position:relative;background:#FFFFFF;color:#2E2A24;font-family:'Untitled Sans',sans-serif;padding:120px 44px 130px;overflow:hidden;">
-
-  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;margin-bottom:56px;">
-    <h2 style="margin:0;font-family:'Untitled Sans',sans-serif;font-weight:400;font-size:34px;letter-spacing:-1.2px;">{{ teamLabel }}</h2>
-    <div style="font-size:11px;letter-spacing:0.18em;color:rgba(46,42,36,0.7);text-shadow:0 0 10px #FFFFFF;">{{ selectNameLabel }}</div>
-  </div>
-  <div class="m-names" style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,400px) minmax(0,1fr);align-items:center;gap:40px;">
-    <div style="min-width:0;display:flex;justify-content:flex-end;">
-      <div style="width:100%;max-width:340px;aspect-ratio:1/1;container-type:inline-size;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-        <pre style="margin:0;font-family:ui-monospace,Menlo,monospace;font-size:calc(100cqw/48);line-height:0.72;letter-spacing:0;color:rgba(46,42,36,0.38);white-space:pre;user-select:none;">{{ asciiArt }}</pre>
-      </div>
-    </div>
-    <div style="position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#EDE8DF;">
-      {{ activePhotoEl }}
-      <div style="position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;background:#FAF7F1;border-radius:999px;padding:7px 14px;font-size:13px;letter-spacing:-0.2px;">
-        <span style="width:7px;height:7px;border-radius:50%;background:#2E2A24;display:block;"></span>{{ activeGroup }}
-      </div>
-      <a href="{{ activeLink }}" target="_blank" style="position:absolute;right:14px;bottom:14px;background:#FAF7F1;border-radius:999px;padding:7px 14px;font-size:13px;letter-spacing:-0.2px;" style-hover="background:#FFFFFF;">Linkedin ↗</a>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;justify-self:end;text-align:right;min-width:0;">
-      <sc-for list="{{ members }}" as="m" hint-placeholder-count="6">
-        <a onMouseEnter="{{ m.select }}" onClick="{{ m.select }}" style="cursor:pointer;white-space:nowrap;font-family:'Untitled Sans',sans-serif;font-size:clamp(20px,2.2vw,42px);line-height:1.24;letter-spacing:-1.2px;color:{{ m.color }};transition:color 0.35s ease,opacity 0.35s ease;" style-hover="color:#2E2A24;">{{ m.name }}</a>
-      </sc-for>
-    </div>
-  </div>
-</section>
-</sc-if>
-<sc-if value="{{ showTeamGrid }}" hint-placeholder-val="{{ false }}">
-<section id="team-grid" dir="{{ dirAttr }}" style="background:#FFFFFF;color:#2E2A24;font-family:'Untitled Sans',sans-serif;padding:110px 44px 130px;">
-  <div style="max-width:1240px;margin:0 auto;display:flex;justify-content:center;gap:36px;margin-bottom:78px;">
-    <span style="font-size:17px;letter-spacing:-0.3px;padding-bottom:8px;border-bottom:1px solid #2E2A24;">{{ boardLabel }}</span>
-  </div>
-  <div class="m-grid2" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:120px;row-gap:96px;">
-    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="6">
-      <div style="margin-top:{{ c.offset }}px;">
-        <div onMouseEnter="{{ c.on }}" onMouseLeave="{{ c.off }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#EDE8DF;container-type:inline-size;">
-          {{ c.media }}
-          <a href="{{ c.link }}" target="_blank" rel="noopener" aria-label="LinkedIn" style="position:absolute;top:18px;right:18px;width:56px;height:56px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:19px;color:#2E2A24;text-decoration:none;transition:transform 0.3s ease;" style-hover="transform:scale(1.08);">↗</a>
-        </div>
-        <h3 style="margin:22px 0 0;font-family:'Untitled Sans',sans-serif;font-weight:400;font-size:30px;letter-spacing:-1px;">{{ c.name }}</h3>
-        <div style="margin-top:9px;font-size:11px;letter-spacing:0.16em;color:rgba(46,42,36,0.6);">{{ c.role }}</div>
-      </div>
-    </sc-for>
-  </div>
-</section>
-</sc-if>
-<section id="partners" data-tint="#FFFFFF" dir="{{ dirAttr }}" style="background: transparent; color: #2E2A24; font-family: 'Untitled Sans',sans-serif; padding: 96px 44px 104px; display: none">
-  <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;">
-    <h2 style="margin: 0; font-family: Untitled Sans; font-weight: 400; font-size: 34px; letter-spacing: -1px">Established with</h2>
-    <div style="display: flex; align-items: center; gap: 44px; margin-left: auto; justify-content: flex-end">
-      <img src="https://upload.wikimedia.org/wikipedia/he/thumb/4/45/Ministry_of_Finance.svg/250px-Ministry_of_Finance.svg.png" alt="משרד האוצר" style="height:75px;width:auto;object-fit:contain;display:block;">
-      <img src="assets/img/logo-council-higher-education.png" alt="הוועדה לתכנון ולתקצוב (ות״ת)" style="height:75px;width:auto;object-fit:contain;display:block;">
-      <img src="assets/img/logo-israel-science-foundation-he.png" alt="הקרן הלאומית למדע" style="height:75px;width:auto;object-fit:contain;display:block;">
-    </div>
-  </div>
-</section>
 <section id="rows" data-tint="#FFFFFF" dir="{{ dirAttr }}" style="background:transparent;color:#2E2A24;font-family:'Untitled Sans',sans-serif;padding:40px 44px 120px;">
   <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:80px;">
     <div>
@@ -858,9 +774,9 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
     <div class="m-foot-cols" style="display:flex;gap:80px;flex-wrap:wrap;">
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div style="font-size:13px;letter-spacing:0.14em;color:rgba(250,247,241,0.4);">{{ exploreLabel }}</div>
-        <a onClick="{{ goFoundations }}" style="color:rgba(250,247,241,0.75);cursor:pointer;font-size:15px;" style-hover="color:#FAF7F1;">{{ arm1 }}</a>
-        <a onClick="{{ goFundamentals }}" style="color:rgba(250,247,241,0.75);cursor:pointer;font-size:15px;" style-hover="color:#FAF7F1;">{{ arm2 }}</a>
-        <a onClick="{{ goFrontiers }}" style="color:rgba(250,247,241,0.75);cursor:pointer;font-size:15px;" style-hover="color:#FAF7F1;">{{ arm3 }}</a>
+        <a onClick="{{ goFoundations }}" tabIndex="0" role="link" style="color:rgba(250,247,241,0.75);cursor:pointer;font-size:15px;" style-hover="color:#FAF7F1;">{{ arm1 }}</a>
+        <a onClick="{{ goFundamentals }}" tabIndex="0" role="link" style="color:rgba(250,247,241,0.75);cursor:pointer;font-size:15px;" style-hover="color:#FAF7F1;">{{ arm2 }}</a>
+        <a onClick="{{ goFrontiers }}" tabIndex="0" role="link" style="color:rgba(250,247,241,0.75);cursor:pointer;font-size:15px;" style-hover="color:#FAF7F1;">{{ arm3 }}</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div style="font-size:13px;letter-spacing:0.14em;color:rgba(250,247,241,0.4);">{{ addressLabel }}</div>
@@ -876,9 +792,9 @@ footer a{min-height:34px;display:inline-flex;align-items:center;}
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div style="font-size:13px;letter-spacing:0.14em;color:rgba(250,247,241,0.4);">{{ langLabel }}</div>
         <div style="display:flex;align-items:center;gap:10px;font-size:15px;font-family:'Ploni','Untitled Sans',sans-serif;">
-          <a onClick="{{ setEn }}" style="cursor:pointer;color:#FAF7F1;opacity:{{ enOpacity }};" style-hover="opacity:1;">EN</a>
+          <a onClick="{{ setEn }}" tabIndex="0" role="button" lang="en" style="cursor:pointer;color:#FAF7F1;opacity:{{ enOpacity }};" style-hover="opacity:1;">EN</a>
           <span style="color:rgba(250,247,241,0.3);">/</span>
-          <a onClick="{{ setHe }}" style="cursor:pointer;color:#FAF7F1;opacity:{{ heOpacity }};" style-hover="opacity:1;">עב</a>
+          <a onClick="{{ setHe }}" tabIndex="0" role="button" lang="he" style="cursor:pointer;color:#FAF7F1;opacity:{{ heOpacity }};" style-hover="opacity:1;">עב</a>
         </div>
       </div>
     </div>
@@ -1668,6 +1584,8 @@ class Component extends DCLogic {
     el.style.filter = this._mw ? 'none' : `blur(${e * 6}px)`;
   };
   componentDidMount() {
+    this._kbd = (e) => { const t = e.target; if (!t || !t.getAttribute) return; const r = t.getAttribute('role'); if ((r === 'button' || r === 'link') && (e.key === 'Enter' || (e.key === ' ' && r === 'button'))) { e.preventDefault(); t.click(); } };
+    document.addEventListener('keydown', this._kbd);
     this.syncDir();
     this.initContact();
 
@@ -2206,19 +2124,19 @@ class Component extends DCLogic {
       src, alt: '', style: { width: '100%', height: '100%', objectFit: fit, objectPosition: 'center', display: 'block' },
     });
     const estRows = (he ? [
-      { name: 'משרד האוצר', note: '', href: 'https://www.gov.il/he/departments/ministry_of_finance', logo: rowImg(this.res('https://upload.wikimedia.org/wikipedia/he/thumb/4/45/Ministry_of_Finance.svg/250px-Ministry_of_Finance.svg.png'), 'contain') },
+      { name: 'משרד האוצר', note: '', href: 'https://www.gov.il/he/departments/ministry_of_finance', logo: rowImg(this.res('assets/img/logo-ministry-of-finance.webp'), 'contain') },
       { name: 'הוועדה לתכנון ולתקצוב (ות״ת)', note: '', href: 'https://che.org.il/', logo: rowImg(this.res('assets/img/logo-council-higher-education.png'), 'contain') },
       { name: 'הקרן הלאומית למדע (ISF)', note: '', href: 'https://www.isf.org.il/', logo: rowImg(this.res('assets/img/logo-israel-science-foundation-he.png'), 'contain') },
     ] : [
-      { name: 'Ministry of Finance', note: '', href: 'https://www.gov.il/en/departments/ministry_of_finance', logo: rowImg(this.res('https://upload.wikimedia.org/wikipedia/he/thumb/4/45/Ministry_of_Finance.svg/250px-Ministry_of_Finance.svg.png'), 'contain') },
+      { name: 'Ministry of Finance', note: '', href: 'https://www.gov.il/en/departments/ministry_of_finance', logo: rowImg(this.res('assets/img/logo-ministry-of-finance.webp'), 'contain') },
       { name: 'Planning and Budgeting Committee (PBC)', note: '', href: 'https://che.org.il/en/', logo: rowImg(this.res('assets/img/logo-council-higher-education.png'), 'contain') },
       { name: 'Israel Science Foundation (ISF)', note: '', href: 'https://www.isf.org.il/', logo: rowImg(this.res('assets/img/logo-israel-science-foundation-he.png'), 'contain') },
     ]);
     const newsRows = (he ? [
-      { date: 'יוני 2026', name: 'נפתח הקול הקורא הראשון של Foundations', note: 'ההגשה פתוחה כעת לחוקרים באקדמיה במחקרים פורצי דרך, לפרטים נוספים מוזמנים להיכנס לעמוד הקול הקורא כאן', more: 'לינק להגשה', href: 'https://www.isf.org.il/#/support-channels/59/10', thumb: React.createElement('video', { src: this.res('assets/video/space-loop.mp4'), autoPlay: true, muted: true, loop: true, playsInline: true, ref: (el) => { if (el) { el.muted = true; el.volume = 0; } }, style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }) },
+      { date: 'יוני 2026', name: 'נפתח הקול הקורא הראשון של Foundations', note: 'ההגשה פתוחה כעת לחוקרים באקדמיה במחקרים פורצי דרך, לפרטים נוספים מוזמנים להיכנס לעמוד הקול הקורא כאן', more: 'לינק להגשה', href: 'https://www.isf.org.il/#/support-channels/59/10', thumb: React.createElement('video', { src: this.res('assets/video/space-loop.mp4'), poster: this.res('assets/img/space-01.jpg'), autoPlay: true, muted: true, loop: true, playsInline: true, ref: (el) => { if (el) { el.muted = true; el.volume = 0; } }, style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }) },
       { date: 'אפריל 2026', name: 'תשתית לאומית ראשונה נכנסה לבחינה', note: 'תשתית לאומית ראשונה נמצאת בהערכה להיכנס ל-Fundamentals, הכרזה צפויה עד סוף השנה', more: '', href: null, thumb: rowImg(this.res('assets/img/news-innovation-ministry.webp'), 'cover') },
     ] : [
-      { date: 'June 2026', name: 'First Foundations call opens', note: 'Our first call for groundbreaking investigator-led research is now open for submissions. Further details are available at the link below.', more: 'Learn more and apply', href: 'https://www.isf.org.il/#/support-channels/59/10', thumb: React.createElement('video', { src: this.res('assets/video/space-loop.mp4'), autoPlay: true, muted: true, loop: true, playsInline: true, ref: (el) => { if (el) { el.muted = true; el.volume = 0; } }, style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }) },
+      { date: 'June 2026', name: 'First Foundations call opens', note: 'Our first call for groundbreaking investigator-led research is now open for submissions. Further details are available at the link below.', more: 'Learn more and apply', href: 'https://www.isf.org.il/#/support-channels/59/10', thumb: React.createElement('video', { src: this.res('assets/video/space-loop.mp4'), poster: this.res('assets/img/space-01.jpg'), autoPlay: true, muted: true, loop: true, playsInline: true, ref: (el) => { if (el) { el.muted = true; el.volume = 0; } }, style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }) },
       { date: 'April 2026', name: 'Infrastructure candidate enters review', note: 'One leading national facility is under evaluation; announcement expected before year-end', more: '', href: null, thumb: rowImg(this.res('assets/img/news-innovation-ministry.webp'), 'cover') },
     ]);
     const pxAll = [{ kind: 'lockup', secId: 'arms-px-e', label: 'V2' }].map((cfg, vi) => {
@@ -2246,7 +2164,7 @@ class Component extends DCLogic {
           img0Ref: (el) => this.pxVEl(vi, 0, 'img', el),
           img1Ref: (el) => this.pxVEl(vi, 1, 'img', el),
           img2Ref: (el) => this.pxVEl(vi, 2, 'img', el),
-          bgs: imgs.map((img, i) => ({ img, ref: (el) => this.pxVEl(vi, i, 'bg', el) })),
+          bgs: imgs.map((img, i) => ({ img, bgUrl: `url('${img}')`, ref: (el) => this.pxVEl(vi, i, 'bg', el) })),
 
           areas: arms.map((a, i) => {
             const key = vi + ':' + i;
@@ -2257,7 +2175,7 @@ class Component extends DCLogic {
               e1w: i === 1 ? 4.2 : 1.7, e1o: i === 1 ? 1 : 0.32,
               e2w: i === 2 ? 4.2 : 1.7, e2o: i === 2 ? 1 : 0.32,
               more: (this.state.pxOpen === key) ? (he ? 'סגירה' : 'Close') : (he ? 'למידע נוסף' : 'Read more'),
-              sign: (this.state.pxOpen === key) ? '−' : '+',
+              sign: (this.state.pxOpen === key) ? '−' : '+', signRot: (this.state.pxOpen === key) ? 'rotate(180deg)' : 'rotate(0deg)', signV: (this.state.pxOpen === key) ? 'scaleY(0)' : 'scaleY(1)',
               moreList: (a.more || []).map((txt, k) => ({ text: txt, k })),
               hasLink: !!a.href,
               href: a.href || '#',
@@ -2428,6 +2346,7 @@ class Component extends DCLogic {
       menuItems: navItems.map(it => ({ label: it.label, go: () => { this.setState({ menuOpen: false }); setTimeout(it.go, 80); } })),
       menuBg: this.state.darkHeader ? 'rgba(20,18,15,0.98)' : 'rgba(255,255,255,0.98)',
       menuOp: this.state.menuOpen ? 1 : 0,
+      menuExpanded: this.state.menuOpen ? 'true' : 'false',
       menuPe: this.state.menuOpen ? 'auto' : 'none',
       burger1: this.state.menuOpen ? 'translateY(7px) rotate(45deg)' : 'none',
       burger2: this.state.menuOpen ? 'translateY(-7px) rotate(-45deg)' : 'none',
