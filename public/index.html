@@ -361,7 +361,40 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
 [dir="rtl"] #rows .m-est .m-row > div:last-child > div:first-child,
 .m-menu[dir="rtl"] > div > a{font-family:'IL Heebo','Untitled Sans',sans-serif !important;}
 </style>
-</helmet>
+<style data-variant="links-unified">
+/* One text-link style everywhere: 15px, underline 1px at 2px, 11px icon before the word, 6px gap. */
+#arms-px-e a, #rows .m-news .m-readmore, .m-readmore{font-size:15px !important;letter-spacing:0 !important;line-height:1.3 !important;text-decoration:underline !important;text-decoration-thickness:1px !important;text-underline-offset:2px !important;border-bottom:0 !important;padding-bottom:0 !important;display:inline-flex !important;align-items:center !important;gap:6px !important;}
+#arms-px-e a svg.m-ico, #rows .m-readmore svg.m-ico, #rows .m-est .m-row .m-sup-ic svg{width:11px !important;height:11px !important;margin:0 !important;}
+/* arrows sit right after the link text (the +/- toggle icon stays before the word) */
+#arms-px-e a svg.m-arrow, #rows .m-readmore svg.m-arrow{order:2;}
+#rows .m-readmore[data-has="0"]{display:none !important;}
+/* same arrow nudge on hover as the arm links */
+#rows .m-readmore svg.m-arrow, #rows .m-est .m-sup-ic svg.m-arrow{transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);}
+#rows .m-news:hover .m-readmore svg.m-arrow, #rows .m-news:focus-visible .m-readmore svg.m-arrow, #rows .m-est .m-row:hover .m-sup-ic svg.m-arrow{transform:translate(2px,-2px);}
+[dir="rtl"] #rows .m-news:hover .m-readmore svg.m-arrow, [dir="rtl"] #rows .m-news:focus-visible .m-readmore svg.m-arrow, [dir="rtl"] #rows .m-est .m-row:hover .m-sup-ic svg.m-arrow{transform:scaleX(-1) translate(2px,-2px);}
+.m-est .m-row .m-sup-t{text-underline-offset:2px !important;}
+</style>
+<style data-variant="team-bio-width">
+/* Leadership bios: a slightly narrower measure on desktop (EN + HE) */
+@media (min-width:761px){#team-color5 [data-fj], #team-color2 [data-fj]{max-width:86% !important;}}
+</style>
+<style data-variant="supported-hover">
+/* Supported by: no fade on hover. The name is underlined and an arrow appears right after it. On touch screens the arrow is always there. */
+.m-est .m-row .m-sup-name{display:flex;align-items:center;gap:6px;}
+.m-est .m-row .m-sup-ic{order:2;display:inline-flex;flex:none;opacity:0;transform:translate(-3px,3px);transition:opacity .25s ease,transform .35s cubic-bezier(0.34,1.56,0.64,1);}
+[dir="rtl"] .m-est .m-row .m-sup-ic{transform:translate(3px,3px);}
+.m-est .m-row .m-sup-t{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:2px;text-decoration-thickness:1px;transition:text-decoration-color .25s ease;}
+.m-est .m-row:hover .m-sup-ic,.m-est .m-row:focus-visible .m-sup-ic{opacity:1;transform:none;}
+.m-est .m-row:hover .m-sup-t,.m-est .m-row:focus-visible .m-sup-t{text-decoration-color:currentColor;}
+@media (hover:none){.m-est .m-row .m-sup-ic,[dir="rtl"] .m-est .m-row .m-sup-ic{opacity:1;transform:none;}}
+</style>
+<style data-variant="fit-justify">
+/* About: every line flush to both edges. Lines are fitted in JS (word spacing first, then letter spacing). */
+[data-fj]{text-align:start !important;}
+[data-fj] .fj-box{display:block;white-space:normal;}
+[data-fj].fj-on > :not(.fj-box){display:none !important;}
+[data-fj] .fj-l{display:block;white-space:nowrap;}
+</style></helmet>
 <div ref="{{ tintRef }}" style="position:fixed;inset:0;background:#14120F;transition:background 0.6s ease;z-index:-1;pointer-events:none;"></div>
 
   <header class="m-head" dir="ltr" style="position:fixed;top:0;left:0;right:0;z-index:30;padding:16px 44px;background:{{ headerBg }};transition:background 0.5s ease;backdrop-filter:blur(10px);font-family:'Untitled Sans',sans-serif;">
@@ -503,26 +536,26 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
     <div style="display: flex; flex-direction: column; gap: 26px; max-width: 543px">
       <h2 style="margin: 0; font-family: 'Untitled Sans',sans-serif; font-weight: 400; font-size: 34px; letter-spacing: -1px">{{ introHead }}</h2>
       <div style="display: flex; flex-direction: column; gap: 20px">
-        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty; white-space: pre-line">{{ introP1 }}</p>
-        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ introP2 }}</p>
-        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ introP3 }}</p>
+        <p data-fj="1" style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty; white-space: pre-line">{{ introP1 }}</p>
+        <p data-fj="1" style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ introP2 }}</p>
+        <p data-fj="1" style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ introP3 }}</p>
       </div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 30px">
       <div style="display:flex;flex-direction:column;gap:12px;">
         <h2 style="margin: 0; font-family: 'Untitled Sans',sans-serif; font-weight: 400; font-size: 34px; letter-spacing: -1px">{{ missionTitle }}</h2>
-        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ missionText }}</p>
+        <p data-fj="1" style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ missionText }}</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px;">
         <h2 style="margin: 0; font-family: 'Untitled Sans',sans-serif; font-weight: 400; font-size: 34px; letter-spacing: -1px">{{ approachTitle }}</h2>
-        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ approachText }}</p>
+        <p data-fj="1" style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ approachText }}</p>
         <ul style="margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;font-size:17px;line-height:1.6;color:rgba(46,42,36,0.75);">
           <sc-for list="{{ approachBullets }}" as="bl" hint-placeholder-count="3"><li style="line-height: 1.55">{{ bl.text }}</li></sc-for>
         </ul>
       </div>
       <div id="areas" style="display:flex;flex-direction:column;gap:12px;margin-top:0;">
         <h2 style="margin: 0; font-family: 'Untitled Sans',sans-serif; font-weight: 400; font-size: 34px; letter-spacing: -1px">{{ armsHeading }}</h2>
-        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ armsLead }}</p>
+        <p data-fj="1" style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(46,42,36,0.75); max-width: 48ch; text-align: start; text-wrap: pretty">{{ armsLead }}</p>
       </div>
     </div>
   </div>
@@ -602,13 +635,13 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
                 <div class="m-lkbody" style="display:flex;align-items:flex-start;gap:100px;margin-top:24px;">
                   <div style="display:flex;flex-direction:column;gap:12px;width:min(100%,390px);flex:0 0 auto;">
                     <p ref="{{ a.tagRef }}" style="margin:0;font-size:clamp(23px,2.05vw,33px);line-height:1.3;letter-spacing:-0.02em;color:#F2EEE7;text-wrap:pretty;opacity:0;will-change:transform;">{{ a.tag }}</p>
-                    <p ref="{{ a.bodyRef }}" style="margin:0;font-size:clamp(17px,1.5vw,24px);line-height:1.45;color:#FFFFFF;text-align:start;text-wrap:pretty;opacity:0;will-change:transform;">{{ a.body }}</p>
+                    <p data-fj="1" ref="{{ a.bodyRef }}" style="margin:0;font-size:clamp(16px,1.15vw,19px);line-height:1.45;color:#FFFFFF;text-align:start;text-wrap:pretty;opacity:0;will-change:transform;">{{ a.body }}</p>
                     <a ref="{{ a.ctaRef }}" onClick="{{ a.toggle }}" tabIndex="0" role="button" style="margin-top:8px;align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font-size:19px;color:#F2EEE7;cursor:pointer;opacity:0;border-bottom:1px solid #F2EEE7;padding-bottom:3px;will-change:transform;" style-hover="color:#F2EEE7;"><svg class="m-ico" aria-hidden="true" viewBox="0 0 14 14" style="width:12px;height:12px;flex:none;overflow:visible;transform:{{ a.signRot }};transition:transform 0.55s cubic-bezier(0.34,1.56,0.64,1);"><line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line><line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" style="transform-box:view-box;transform-origin:7px 7px;transform:{{ a.signV }};transition:transform 0.35s ease;"></line></svg>{{ a.more }}</a>
                   </div>
                   <div ref="{{ a.detailRef }}" class="m-lkdetail" style="flex:1 1 0;min-width:0;max-height:0;opacity:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(0.22,0.61,0.36,1),opacity 0.4s ease;">
                     <div style="display:flex;flex-direction:column;gap:10px;max-width:66ch;">
                       <sc-for list="{{ a.moreList }}" as="p" hint-placeholder-count="2">
-                        <p style="margin:0;font-size:clamp(18px,1.5vw,23px);line-height:1.45;color:#FFFFFF;text-align:start;text-wrap:pretty;">{{ p.text }}</p>
+                        <p data-fj="1" style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;color:#FFFFFF;text-align:start;text-wrap:pretty;">{{ p.text }}</p>
                       </sc-for>
                       <sc-if value="{{ a.hasLink }}" hint-placeholder-val="{{ false }}">
                         <a href="{{ a.href }}" target="_blank" style="align-self:flex-start;margin-top:2px;font-size:14px;color:#F2EEE7;border-bottom:1px solid #F2EEE7;padding-bottom:2px;"><svg class="m-ico m-arrow" aria-hidden="true" viewBox="0 0 14 14" style="width:11px;height:11px;flex:none;overflow:visible;transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);"><path d="M3 11 L11 3 M5 3 H11 V9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{ a.linkLabel }}</a>
@@ -648,7 +681,7 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
         <div style="font-size:28px;letter-spacing:-0.9px;line-height:1.1;">{{ selName }}</div>
       </div>
     </div>
-    <div style="font-size:19px;line-height:1.6;color:rgba(246,243,238,0.82);max-width:74ch;text-wrap:pretty;">{{ selBio }}</div>
+    <div data-fj="1" style="font-size:19px;line-height:1.6;color:rgba(246,243,238,0.82);max-width:74ch;text-wrap:pretty;">{{ selBio }}</div>
   </div>
   <div class="m-mobteam" style="display:none;width:100%;box-sizing:border-box;flex-direction:column;padding:0 20px;">
     <sc-for list="{{ portraits }}" as="p" hint-placeholder-count="7">
@@ -664,7 +697,7 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
           </div>
         </div>
         <div style="max-height:{{ p.listMax }};overflow:hidden;transition:max-height 0.6s cubic-bezier(0.45,0,0.2,1);">
-          <div style="font-size:16px;line-height:1.55;color:rgba(246,243,238,0.82);padding:12px 0 2px;text-wrap:pretty;opacity:{{ p.listOp }};transform:{{ p.listY }};transition:opacity {{ p.listOpDur }} cubic-bezier(0.45,0,0.2,1),transform 0.6s cubic-bezier(0.45,0,0.2,1);">{{ p.bio }}</div>
+          <div data-fj="1" style="font-size:15px;line-height:1.6;color:rgba(246,243,238,0.82);padding:12px 0 2px;text-wrap:pretty;opacity:{{ p.listOp }};transform:{{ p.listY }};transition:opacity {{ p.listOpDur }} cubic-bezier(0.45,0,0.2,1),transform 0.6s cubic-bezier(0.45,0,0.2,1);">{{ p.bio }}</div>
         </div>
       </div>
     </sc-for>
@@ -690,7 +723,7 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
         </div>
         <div style="display:grid;grid-template-rows:{{ p.listRows }};transition:grid-template-rows 0.6s cubic-bezier(0.45,0,0.2,1);">
           <div style="overflow:hidden;min-height:0;">
-            <div style="font-size:16px;line-height:1.55;color:rgba(246,243,238,0.78);padding:16px 0 2px;max-width:70ch;text-align:start;text-wrap:pretty;white-space:pre-line;opacity:{{ p.listOp }};transform:{{ p.listY }};transition:opacity {{ p.listOpDur }} ease,transform 0.6s cubic-bezier(0.45,0,0.2,1);">{{ p.bio }}</div>
+            <div data-fj="1" style="font-size:15px;line-height:1.6;color:rgba(246,243,238,0.78);padding:16px 0 2px;max-width:70ch;text-align:start;text-wrap:pretty;white-space:pre-line;opacity:{{ p.listOp }};transform:{{ p.listY }};transition:opacity {{ p.listOpDur }} ease,transform 0.6s cubic-bezier(0.45,0,0.2,1);">{{ p.bio }}</div>
           </div>
         </div>
       </div>
@@ -705,11 +738,11 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
       <h2 style="margin:0 0 8px;font-family:'Untitled Sans',sans-serif;font-weight:400;font-size:34px;letter-spacing:-1px;">{{ partnersLead }}</h2>
       <div class="m-cols2 m-est" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px;">
         <sc-for list="{{ estRows }}" as="r" hint-placeholder-count="4">
-          <a class="m-row" href="{{ r.href }}" target="_blank" rel="noopener" style="display: grid; grid-template-columns: 130px minmax(0,1fr); align-items: center; gap: 28px; padding: 26px 0; border-bottom: 1px solid rgba(46,42,36,0.12); color: #2E2A24; text-decoration: none; transition: opacity 0.3s ease" style-hover="opacity:0.6;">
+          <a class="m-row" href="{{ r.href }}" target="_blank" rel="noopener" style="display: grid; grid-template-columns: 130px minmax(0,1fr); align-items: center; gap: 28px; padding: 26px 0; border-bottom: 1px solid rgba(46,42,36,0.12); color: #2E2A24; text-decoration: none">
             <div style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; background: rgba(46,42,36,0.05); border-radius: 10px; flex-shrink: 0"><div style="width:60%;height:60%;display:flex;align-items:center;justify-content:center;">{{ r.logo }}</div></div>
             <div style="min-width:0;display:flex;flex-direction:column;gap:5px;">
-              <div style="font-size:17px;letter-spacing:-0.3px;">{{ r.name }}</div>
-              <div style="font-size:15px;line-height:1.45;color:rgba(46,42,36,0.55);max-width:64ch;text-wrap:pretty;">{{ r.note }}</div>
+              <div class="m-sup-name" style="font-size:17px;letter-spacing:-0.3px;"><span class="m-sup-ic" aria-hidden="true"><svg class="m-ico m-arrow" viewBox="0 0 14 14" style="width:11px;height:11px;display:block;overflow:visible;"><path d="M3 11 L11 3 M5 3 H11 V9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="m-sup-t">{{ r.name }}</span></div>
+              <div data-fj="1" style="font-size:15px;line-height:1.45;color:rgba(46,42,36,0.55);max-width:64ch;text-wrap:pretty;">{{ r.note }}</div>
             </div>
           </a>
         </sc-for>
@@ -724,8 +757,8 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
             <div style="min-width:0;display:flex;flex-direction:column;gap:5px;">
               <div style="font-size:11px;letter-spacing:0.16em;color:rgba(46,42,36,0.45);">{{ r.date }}</div>
               <div style="font-size:17px;letter-spacing:-0.3px;">{{ r.name }}</div>
-              <div style="font-size:15px;line-height:1.45;color:rgba(46,42,36,0.55);max-width:64ch;text-wrap:pretty;">{{ r.note }}</div>
-              <div class="m-readmore" style="font-size:13px;letter-spacing:0.04em;color:#2E2A24;text-decoration:underline;text-underline-offset:3px;margin-top:4px;opacity:0;transform:translateY(3px);transition:opacity 0.3s ease,transform 0.3s ease;">{{ r.more }}</div>
+              <div data-fj="1" style="font-size:15px;line-height:1.45;color:rgba(46,42,36,0.55);max-width:64ch;text-wrap:pretty;">{{ r.note }}</div>
+              <div class="m-readmore" data-has="{{ r.moreHas }}" style="font-size:13px;letter-spacing:0.04em;color:#2E2A24;text-decoration:underline;text-underline-offset:3px;margin-top:4px;opacity:0;transform:translateY(3px);transition:opacity 0.3s ease,transform 0.3s ease;"><svg class="m-ico m-arrow" aria-hidden="true" viewBox="0 0 14 14" style="width:10px;height:10px;flex:none;overflow:visible;margin-inline-end:6px;vertical-align:-1px;display:inline-block;"><path d="M3 11 L11 3 M5 3 H11 V9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{ r.more }}</div>
             </div>
           </a>
         </sc-for>
@@ -737,7 +770,7 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
   <div class="m-contact" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:72px;align-items:start;">
     <div style="display:flex;flex-direction:column;gap:14px;">
       <h2 style="margin: 0; font-family: 'Untitled Sans',sans-serif; font-weight: 400; font-size: 34px; letter-spacing: -1px">{{ contactHeading }}</h2>
-      <p style="margin:0;font-size:17px;line-height:1.5;color:rgba(46,42,36,0.6);max-width:38ch;text-wrap:pretty;white-space:pre-line;">{{ contactLead }}</p>
+      <p data-fj="1" style="margin:0;font-size:17px;line-height:1.5;color:rgba(46,42,36,0.6);max-width:38ch;text-wrap:pretty;white-space:pre-line;">{{ contactLead }}</p>
     </div>
     <form class="m-form" name="contact" method="POST" action="/api/contact" noValidate="{{ true }}" onInput="{{ clearErrs }}" onSubmit="{{ contactSubmit }}" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px;">
       <p style="display:none;"><label>Don't fill this out<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
@@ -769,7 +802,7 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
     <div style="max-width:320px;display:flex;flex-direction:column;gap:18px;">
       <sc-if value="{{ isLogo1 }}" hint-placeholder-val="{{ false }}"><img src="assets/img/logo-isralabs-en.svg" alt="IsraLabs" style="height:34px;width:auto;display:block;align-self:flex-start;filter:brightness(0) invert(1);"></sc-if>
       <sc-if value="{{ isLogo2 }}" hint-placeholder-val="{{ true }}"><img src="assets/img/logo-isralabs-mark.svg" alt="IsraLabs" style="height:42px;width:auto;display:block;align-self:flex-start;filter:brightness(0) invert(1);"></sc-if>
-      <div dir="{{ dirAttr }}" style="font-size:15px;line-height:1.6;color:rgba(250,247,241,0.55);">{{ footBlurb }}</div>
+      <div data-fj="1" dir="{{ dirAttr }}" style="font-size:15px;line-height:1.6;color:rgba(250,247,241,0.55);">{{ footBlurb }}</div>
     </div>
     <div class="m-foot-cols" style="display:flex;gap:80px;flex-wrap:wrap;">
       <div style="display:flex;flex-direction:column;gap:14px;">
@@ -1586,6 +1619,91 @@ class Component extends DCLogic {
   componentDidMount() {
     this._kbd = (e) => { const t = e.target; if (!t || !t.getAttribute) return; const r = t.getAttribute('role'); if ((r === 'button' || r === 'link') && (e.key === 'Enter' || (e.key === ' ' && r === 'button'))) { e.preventDefault(); t.click(); } };
     document.addEventListener('keydown', this._kbd);
+    // Fit-justify: every line of the About paragraphs runs exactly edge to edge (last line stays natural).
+    // React's own text span stays in the element (hidden by CSS) so language switches keep working;
+    // the visible lines live in an extra .fj-box that this code owns.
+    this._fj = () => {
+      const items = [];
+      document.querySelectorAll('[data-fj]').forEach((p) => {
+        if (this._fjRo) this._fjRo.observe(p);
+        if (!p.clientWidth) return;
+        p._fjW = p.clientWidth;
+        const src = [...p.childNodes].filter((n) => !(n.classList && n.classList.contains('fj-box'))).map((n) => n.textContent).join(' ').replace(/\s+/g, ' ').trim();
+        let box = p.querySelector(':scope > .fj-box');
+        if (!src) { if (box) box.remove(); return; }
+        if (!box) { box = document.createElement('span'); box.className = 'fj-box'; p.appendChild(box); }
+        p.classList.add('fj-on');
+        const words = src.split(' ');
+        const r = document.createRange();
+        // lay the paragraph out at a given scale; returns the widest extra word gap (in em)
+        const layout = (scale) => {
+          box.style.fontSize = scale === 1 ? '' : Math.round(scale * 100) + '%';
+          box.textContent = '';
+          box.style.whiteSpace = 'nowrap'; // measure every word on one line, so hyphenated words never split while measuring
+          const spans = words.map((w, k) => { const sp = document.createElement('span'); sp.textContent = w; box.appendChild(sp); if (k < words.length - 1) box.appendChild(document.createTextNode(' ')); return sp; });
+          const sw = (() => { const tn = box.childNodes[1]; if (!tn) return 0; r.selectNodeContents(tn); return r.getBoundingClientRect().width; })();
+          const ww = spans.map((sp) => sp.getBoundingClientRect().width);
+          box.style.whiteSpace = '';
+          const W = box.clientWidth;
+          // balanced line breaks (minimum raggedness), like a paragraph composer
+          const N = words.length, best = new Array(N + 1).fill(Infinity), from = new Array(N + 1).fill(0);
+          best[0] = 0;
+          for (let j = 1; j <= N; j++) {
+            let w = -sw;
+            for (let i = j - 1; i >= 0; i--) {
+              w += ww[i] + sw;
+              if (w > W + 0.5 && i < j - 1) break;
+              const slack = Math.max(0, W - w), gaps = j - 1 - i;
+              const c = j === N ? 0 : (gaps ? (slack / gaps) ** 2 : slack ** 2 * 4);
+              if (best[i] + c < best[j]) { best[j] = best[i] + c; from[j] = i; }
+            }
+          }
+          const lines = []; for (let j = N; j > 0; j = from[j]) lines.unshift(words.slice(from[j], j));
+          box.textContent = '';
+          const fs = parseFloat(getComputedStyle(box).fontSize) || 16;
+          let worst = 0;
+          lines.forEach((ln, li) => {
+            const l = document.createElement('span'); l.className = 'fj-l'; l.textContent = ln.join(' ');
+            box.appendChild(l);
+            if (li === lines.length - 1) return;
+            r.selectNodeContents(l); const extra = W - r.getBoundingClientRect().width; if (Math.abs(extra) <= 0.3) return;
+            const gaps = ln.length - 1, n = ln.join(' ').length - 1;
+            // word spacing first (up to 0.25em), then very subtle tracking (up to 0.02em), then the rest back into word spacing
+            let ws = gaps ? Math.min(extra / gaps, 0.25 * fs) : 0;
+            let ls = n > 0 ? Math.min((extra - ws * gaps) / n, gaps ? 0.02 * fs : Infinity) : 0;
+            if (gaps) ws = (extra - ls * n) / gaps;
+            const set = () => { l.style.setProperty('word-spacing', ws + 'px', 'important'); l.style.setProperty('letter-spacing', ls + 'px', 'important'); l.style.setProperty('margin-inline-end', (-ls) + 'px', 'important'); };
+            for (let k = 0; k < 3; k++) { set(); r.selectNodeContents(l); const d = W - (r.getBoundingClientRect().width - ls); if (Math.abs(d) < 0.3) break; if (gaps) ws += d / gaps; else if (n > 0) ls += d / n; else break; }
+            worst = Math.max(worst, gaps ? ws / fs : 9);
+          });
+          return worst;
+        };
+        // if the word gaps get too wide, the text may be set a touch smaller (down to 91%)
+        const scales = [1, 0.97, 0.94, 0.91];
+        let pick = 1, low = Infinity;
+        for (const sc of scales) { const wv = layout(sc); if (wv < low - 0.02) { low = wv; pick = sc; } if (wv <= 0.45) break; }
+        items.push({ key: getComputedStyle(p).fontSize, pick, layout });
+      });
+      // text that has the same size in the design keeps the same size everywhere on the page: use the smallest step any of it needs
+      const groups = {};
+      items.forEach((it) => { groups[it.key] = Math.min(groups[it.key] ?? 1, it.pick); });
+      items.forEach((it) => it.layout(groups[it.key]));
+    };
+    this._fjRun = () => { clearTimeout(this._fjT); this._fjT = setTimeout(this._fj, 60); };
+    this._fjMo = new MutationObserver((ms) => {
+      const hit = ms.some((m) => {
+        const t = m.target.nodeType === 1 ? m.target : m.target.parentElement;
+        if (!t || (t.closest && t.closest('.fj-box'))) return false;
+        if (t.closest && t.closest('[data-fj]')) return true;
+        return [...m.addedNodes].some((x) => x.nodeType === 1 && (x.matches('[data-fj]') || x.querySelector('[data-fj]')));
+      });
+      if (hit) this._fjRun();
+    });
+    this._fjMo.observe(document.body, { childList: true, characterData: true, subtree: true });
+    window.addEventListener('resize', this._fjRun);
+    this._fjRo = typeof ResizeObserver !== 'undefined' ? new ResizeObserver((es) => { if (es.some((e) => e.target.clientWidth && e.target.clientWidth !== e.target._fjW)) this._fjRun(); }) : null;
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(this._fjRun);
+    this._fjRun();
     this.syncDir();
     this.initContact();
 
@@ -2139,6 +2257,7 @@ class Component extends DCLogic {
       { date: 'June 2026', name: 'First Foundations call opens', note: 'Our first call for groundbreaking investigator-led research is now open for submissions. Further details are available at the link below.', more: 'Learn more and apply', href: 'https://www.isf.org.il/#/support-channels/59/10', thumb: React.createElement('video', { src: this.res('assets/video/space-loop.mp4'), poster: this.res('assets/img/space-01.jpg'), autoPlay: true, muted: true, loop: true, playsInline: true, ref: (el) => { if (el) { el.muted = true; el.volume = 0; } }, style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }) },
       { date: 'April 2026', name: 'Infrastructure candidate enters review', note: 'One leading national facility is under evaluation; announcement expected before year-end', more: '', href: null, thumb: rowImg(this.res('assets/img/news-innovation-ministry.webp'), 'cover') },
     ]);
+    newsRows.forEach((r) => { r.moreHas = r.more ? '1' : '0'; }); // rows without a link get no link line or arrow
     const pxAll = [{ kind: 'lockup', secId: 'arms-px-e', label: 'V2' }].map((cfg, vi) => {
         const kind = cfg.kind;
         const V = this.pxVInit(vi); V.kind = kind;
