@@ -361,6 +361,20 @@ a:focus-visible,button:focus-visible,[role]:focus-visible,input:focus-visible,te
 [dir="rtl"] #rows .m-est .m-row > div:last-child > div:first-child,
 .m-menu[dir="rtl"] > div > a{font-family:'IL Heebo','Untitled Sans',sans-serif !important;}
 </style>
+<style data-variant="footer-mobile">
+/* Footer: every column item sits on the same 15px / 1.5 text line, so labels and first rows line up on every screen.
+   The wordmark gets the same optical inset as the header logo. On phones the footer wordmark is hidden,
+   because the header logo is already on screen. */
+footer .m-foot-cols a, footer .m-foot-cols > div > div:nth-child(2){min-height:0 !important;display:block !important;font-size:15px !important;line-height:1.5 !important;padding:0 !important;margin:0 !important;}
+footer .m-foot-cols > div > div:nth-child(2) > a{display:inline !important;}
+footer .m-foot-cols a[lang="en"] + span{margin:0 10px !important;}
+footer .m-foot-cols > div{gap:12px !important;}
+footer[dir="ltr"] .m-foot > div:first-child img{margin-left:-11px !important;}
+footer[dir="rtl"] .m-foot > div:first-child img{margin-right:-13px !important;}
+@media (max-width:760px){
+footer .m-foot > div:first-child img{display:none !important;}
+}
+</style>
 <style data-variant="links-unified">
 /* One text-link style everywhere: 15px, underline 1px at 2px, 11px icon before the word, 6px gap. */
 #arms-px-e a, #rows .m-news .m-readmore, .m-readmore{font-size:15px !important;letter-spacing:0 !important;line-height:1.3 !important;text-decoration:underline !important;text-decoration-thickness:1px !important;text-underline-offset:2px !important;border-bottom:0 !important;padding-bottom:0 !important;display:inline-flex !important;align-items:center !important;gap:6px !important;}
@@ -933,18 +947,15 @@ class Component extends DCLogic {
       { name: 'Prof. Daniel Zajfman', nameHe: 'פרופ׳ דניאל זייפמן', photo: 'assets/img/team/daniel-zajfman.webp', role: 'Chairman of IsraLabs', roleHe: 'יו״ר ישראלאבס',
         bioEn: 'One of Israel\u2019s leading scientists and scientific leaders. He served as President of the Weizmann Institute of Science for more than a decade and currently chairs the Israel Science Foundation (ISF). Throughout his career he has championed scientific excellence, international collaboration, and long-term investment in fundamental research, helping shape Israel\u2019s research ecosystem.',
         bioHe: 'מהמובילים בקהילה המדעית בישראל. כיהן כנשיא מכון ויצמן למדע למעלה מעשור, וכיום יו״ר הקרן הלאומית למדע. לאורך הקריירה קידם מצוינות מדעית, שיתופי פעולה בינלאומיים והשקעה ארוכת־טווח במחקר בסיסי, ועיצב את מערכת המחקר בישראל.' },
-      { name: 'Avi Hasson, MBA', nameHe: 'אבי חסון, MBA', photo: 'assets/img/team/avi-hasson.jpg', role: 'Board Member', roleHe: 'חבר דירקטוריון',
-        bioEn: 'One of Israel\u2019s leading innovation policy experts. He served as Israel\u2019s Chief Scientist and as the founding Chairman of the Israel Innovation Authority, where he helped shape the country\u2019s innovation strategy. He later served as CEO of Startup Nation Central, strengthening global partnerships around Israel\u2019s innovation ecosystem.',
-        bioHe: 'מהמומחים המובילים בישראל למדיניות חדשנות. כיהן כמדען הראשי של ישראל וכיו״ר המייסד של רשות החדשנות, שם עיצב את האסטרטגיה הלאומית לחדשנות. לאחר מכן כיהן כמנכ״ל Startup Nation Central וחיזק שיתופי פעולה גלובליים סביב מערכת החדשנות הישראלית.' },
+      { name: 'Avi Hasson', nameHe: 'אבי חסון', photo: 'assets/img/team/avi-hasson.jpg', role: 'Board Member', roleHe: 'חבר דירקטוריון',
+        bioEn: 'One of Israel\u2019s leading innovation policy experts. Prior to his public service, he spent two decades in Israel\u2019s technology and venture capital sectors, including ten years as General Partner at Gemini Israel Funds, following senior roles at leading technology companies. He served as Israel\u2019s Chief Scientist and as the founding Chairman of the Israel Innovation Authority, where he helped shape the country\u2019s innovation strategy. He later served as CEO of Startup Nation Central, strengthening global partnerships around Israel\u2019s innovation ecosystem.',
+        bioHe: 'מהמומחים המובילים בישראל למדיניות חדשנות. טרם כניסתו לשירות הציבורי, פעל במשך כשני עשורים בתעשיית הטכנולוגיה ובהון סיכון, בהם עשר שנים כשותף כללי (General Partner) בקרן Gemini Israel Funds, לאחר שמילא תפקידים בכירים בחברות טכנולוגיה מובילות. כיהן כמדען הראשי של ישראל וכיו״ר המייסד של רשות החדשנות, שם היה שותף לעיצוב אסטרטגיית החדשנות הלאומית. לאחר מכן כיהן כמנכ״ל Startup Nation Central וחיזק שיתופי פעולה גלובליים סביב מערכת החדשנות הישראלית.' },
       { name: 'Dr. Dana Gourevich', nameHe: 'ד״ר דנה גורביץ׳', photo: 'assets/img/team/dana-gourevich.png', role: 'Board Member', roleHe: 'חברת דירקטוריון',
         bioEn: 'An innovation strategist with extensive experience at the intersection of science, technology, government, and industry. As former Chief Technology Officer of the Israel Innovation Authority, she established and led the Authority\u2019s strategic technology unit, shaping national innovation policy through data-driven foresight and cross-sector collaboration. She has also held senior leadership roles in life sciences, innovation, and technology commercialisation.',
         bioHe: 'אסטרטגית חדשנות עם ניסיון נרחב בממשק שבין מדע, טכנולוגיה, ממשל ותעשייה. כסמנכ״לית הטכנולוגיות של רשות החדשנות הקימה והובילה את יחידת הטכנולוגיה האסטרטגית, ועיצבה מדיניות חדשנות לאומית מבוססת נתונים. כיהנה בתפקידי הנהלה בכירים במדעי החיים, בחדשנות ובמסחור טכנולוגיות.' },
       { name: 'Adv. Keren Primor Cohen', nameHe: 'עו״ד קרן פרימור כהן', photo: 'assets/img/team/keren-primor-cohen.jpg', role: 'Board Member', roleHe: 'חברת דירקטוריון',
         bioEn: 'An executive and strategic innovation expert with over 25 years of experience leading multi-stakeholder partnerships across academia, industry, and government. As former CEO of Ramot (Tel Aviv University) and Chairman of the Israel Technology Transfer Organization, she led the creation of innovation vehicles, hundreds of commercialization deals, the launch of dozens of startups, and managed a diverse portfolio of tech investments.',
         bioHe: 'מנהלת ומומחית אסטרטגית לחדשנות, בעלת מעל 25 שנות ניסיון בהובלת שותפויות רב-ממשקיות בין האקדמיה, התעשייה והממשלה. כמנכ״לית ״רמות״ (אוניברסיטת תל אביב) לשעבר וכיו״ר ארגון חברות המסחור בישראל, הובילה הקמת כלי חדשנות, מאות עסקאות מסחור, הקמת עשרות סטרטאפים וניהול מגוון השקעות בטכנולוגיות.' },
-      { name: 'Prof. Ami Moyal', nameHe: 'פרופ׳ עמי מויאל', photo: 'assets/img/team/ami-moyal.jpg', role: 'Board Member', roleHe: 'חבר דירקטוריון',
-        bioEn: 'Chair of the Planning and Budgeting Committee (PBC) of Israel\u2019s Council for Higher Education and President of Afeka Academic College of Engineering. Throughout his career he has played a central role in shaping higher education policy, strengthening research capabilities, and advancing engineering education and innovation in Israel.',
-        bioHe: 'יו״ר הוועדה לתכנון ולתקצוב (ות״ת) במועצה להשכלה גבוהה ונשיא אפקה, המכללה האקדמית להנדסה בתל אביב. לאורך הקריירה מילא תפקיד מרכזי בעיצוב מדיניות ההשכלה הגבוהה, בחיזוק יכולות המחקר ובקידום החינוך ההנדסי והחדשנות בישראל.' },
       { name: 'Yogev Gradus, MBA', nameHe: 'יוגב גרדוס, MBA', photo: 'assets/img/team/yogev-gradus.jpg', role: 'Board Member', roleHe: 'חבר דירקטוריון',
         bioEn: 'An economist and public policy leader with extensive experience in national economic strategy and public investment. As Director of Budgets at Israel\u2019s Ministry of Finance, he led major reforms and long-term policy initiatives that shaped government investment, economic growth, and national development.',
         bioHe: 'כלכלן ומוביל מדיניות ציבורית עם ניסיון נרחב באסטרטגיה כלכלית לאומית ובהשקעות ציבוריות. כראש אגף התקציבים במשרד האוצר הוביל רפורמות משמעותיות ומדיניות ארוכת־טווח שעיצבו את ההשקעה הממשלתית, הצמיחה הכלכלית והפיתוח הלאומי.' },
