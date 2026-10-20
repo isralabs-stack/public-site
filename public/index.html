@@ -835,10 +835,9 @@ footer .m-foot > div:first-child img{display:none !important;}
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div style="font-size:13px;letter-spacing:0.14em;color:rgba(250,247,241,0.4);">{{ connectLabel }}</div>
-        <a href="#" style="color:rgba(250,247,241,0.75);font-size:15px;" style-hover="color:#FAF7F1;">LinkedIn</a>
         
         
-        <a href="#" style="color:rgba(250,247,241,0.75);font-size:15px;" style-hover="color:#FAF7F1;">{{ emailLabel }}</a>
+        <a onClick="{{ goContact }}" tabIndex="0" role="link" style="color:rgba(250,247,241,0.75);font-size:15px;cursor:pointer;" style-hover="color:#FAF7F1;">{{ emailLabel }}</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div style="font-size:13px;letter-spacing:0.14em;color:rgba(250,247,241,0.4);">{{ langLabel }}</div>
