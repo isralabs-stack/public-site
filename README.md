@@ -16,7 +16,7 @@ Static site with a Cloudflare Worker for contact submissions. No build step.
 - tests/ — runnable Node checks; no test dependencies
 
 ## Deploy
-Cloudflare Workers: the Git-connected project runs `npx wrangler deploy` with no build command. `wrangler.jsonc` publishes only `public/`; the first Worker deployment using this layout succeeded on 2026-10-02. The `workers.dev` URL is for migration testing, not proof that the contact form works.
+Cloudflare Workers: the Git-connected project runs `npx wrangler deploy` with no build command. The Worker also runs first for `/` and `/index.html`: on `/?lang=he` it swaps the share tags (og:*, twitter:*, title, description, canonical) to Hebrew and `og-image-he.jpg`, because link crawlers do not run the page script. Every other request goes straight to the static assets. `wrangler.jsonc` publishes only `public/`; the first Worker deployment using this layout succeeded on 2026-10-02. The `workers.dev` URL is for migration testing, not proof that the contact form works.
 Vercel: keep the project root at the repository root and framework preset `Other`; its default output directory selects `public/` when present. Verify its next Git deployment after this layout change.
 Only one provider should own the production domain at a time. Configure old-domain redirects in the active host's dashboard; see the local [deployment handoff](docs/deployment-handoff.md) (currently ignored by Git).
 
