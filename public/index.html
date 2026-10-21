@@ -19,11 +19,15 @@
 <meta property="og:url" content="https://isralabs.org/">
 <meta property="og:title" content="IsraLabs — Israel's national platform for scientific discovery">
 <meta property="og:description" content="Long-term research funding, national research infrastructure, and new models for scientific collaboration.">
-<meta property="og:image" content="https://isralabs.org/assets/img/space-01.jpg">
+<meta property="og:image" content="https://isralabs.org/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="IsraLabs. Building the Future of Science">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="IsraLabs — Israel's national platform for scientific discovery">
 <meta name="twitter:description" content="Long-term research funding, national research infrastructure, and new models for scientific collaboration.">
-<meta name="twitter:image" content="https://isralabs.org/assets/img/space-01.jpg">
+<meta name="twitter:image" content="https://isralabs.org/assets/img/og-image.jpg">
+<meta name="twitter:image:alt" content="IsraLabs. Building the Future of Science">
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="preload" href="assets/fonts/untitled-sans-regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/untitled-sans-medium.woff" as="font" type="font/woff" crossorigin>
@@ -831,10 +835,9 @@ footer .m-foot > div:first-child img{display:none !important;}
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div style="font-size:13px;letter-spacing:0.14em;color:rgba(250,247,241,0.4);">{{ connectLabel }}</div>
-        <a href="#" style="color:rgba(250,247,241,0.75);font-size:15px;" style-hover="color:#FAF7F1;">LinkedIn</a>
         
         
-        <a href="#" style="color:rgba(250,247,241,0.75);font-size:15px;" style-hover="color:#FAF7F1;">{{ emailLabel }}</a>
+        <a onClick="{{ goContact }}" tabIndex="0" role="link" style="color:rgba(250,247,241,0.75);font-size:15px;cursor:pointer;" style-hover="color:#FAF7F1;">{{ emailLabel }}</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div style="font-size:13px;letter-spacing:0.14em;color:rgba(250,247,241,0.4);">{{ langLabel }}</div>

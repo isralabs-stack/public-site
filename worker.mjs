@@ -69,6 +69,55 @@ async function contact(request, env) {
   return json({ success: true });
 }
 
+// Hebrew link previews. Crawlers (WhatsApp, Facebook, LinkedIn, X) read the raw HTML and do not run
+// the page script that switches language, so for /?lang=he the share tags are swapped here.
+const HE_META = {
+  title: 'ישראלאבס | הפלטפורמה הלאומית לתגליות מדעיות',
+  description: 'מקדמים את הדור הבא של התגליות המדעיות: מימון מחקר ארוך טווח, תשתיות מחקר לאומיות ומודלים חדשים לשיתופי פעולה.',
+  url: 'https://isralabs.org/?lang=he',
+  image: 'https://isralabs.org/assets/img/og-image-he.jpg',
+  imageAlt: 'ישראלאבס. בונים את עתיד המדע',
+};
+const escapeAttr = value => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
+export function localizeHead(html) {
+  const head = html.indexOf('</head>');
+  if (head === -1) return html;
+  const set = (attr, key, value) => {
+    const re = new RegExp(`(<meta\\s+${attr}="${key}"\\s+content=")[^"]*(")`);
+    return part => part.replace(re, `$1${escapeAttr(value)}$2`);
+  };
+  const edits = [
+    set('property', 'og:title', HE_META.title),
+    set('property', 'og:description', HE_META.description),
+    set('property', 'og:url', HE_META.url),
+    set('property', 'og:image', HE_META.image),
+    set('property', 'og:image:alt', HE_META.imageAlt),
+    set('property', 'og:locale', 'he_IL'),
+    set('property', 'og:locale:alternate', 'en_US'),
+    set('name', 'twitter:title', HE_META.title),
+    set('name', 'twitter:description', HE_META.description),
+    set('name', 'twitter:image', HE_META.image),
+    set('name', 'twitter:image:alt', HE_META.imageAlt),
+    set('name', 'description', HE_META.description),
+    part => part.replace(/<title>[^<]*<\/title>/, `<title>${escapeAttr(HE_META.title)}</title>`),
+    part => part.replace(/(<link\s+rel="canonical"\s+href=")[^"]*(")/, `$1${HE_META.url}$2`),
+  ];
+  const top = edits.reduce((part, edit) => edit(part), html.slice(0, head));
+  return top + html.slice(head);
+}
+
+async function page(request, env) {
+  const response = await env.ASSETS.fetch(request);
+  const url = new URL(request.url);
+  if (url.searchParams.get('lang') !== 'he' || !response.ok
+    || !(response.headers.get('content-type') || '').includes('text/html')) return response;
+  const headers = new Headers(response.headers);
+  headers.delete('content-length');
+  headers.delete('etag');
+  return new Response(localizeHead(await response.text()), { status: response.status, headers });
+}
+
 export default {
   async fetch(request, env) {
     const path = new URL(request.url).pathname;
@@ -81,6 +130,7 @@ export default {
       if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
       return contact(request, env);
     }
+    if ((path === '/' || path === '/index.html') && request.method === 'GET') return page(request, env);
     return env.ASSETS.fetch(request);
   },
 };
